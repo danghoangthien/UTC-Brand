@@ -1,0 +1,40 @@
+<?php 
+$level='../../../';
+//1 database config
+include $level.'config.php';
+//2 neccessary library
+include $level.'htinmotion/orm/adodb5/adodb.inc.php';
+include $level.'htinmotion/orm/general/general.php';
+include $level.'template/admin/tablepager.php';//pager html
+include $level.'template/admin/tablerender.php';//pager html
+//3 lay out
+include $level.'template/admin/admin_head.php';
+include $level.'template/admin/admin_header.php';
+//4 code behind
+?>			
+				<?php 					
+					$general=new general();							
+					$arr=$general->getSQL("SELECT quiz_id,quiz_question FROM quiz ");								
+					$actions=array(
+					//"edit"=>"editconsult.php?u_id=",
+					
+					"delete"=>"deletequiz.php?d_id=");
+					$header=array("Câu hỏi Trắc nghiệm");
+					echo"<script> $(document).ready( 
+					function()
+					{
+						 $(\"th:eq(0)\").css('width','40%'); 
+						 $(\"th:eq(3)\").css('width','10%'); 
+						 $(\"th\").css('color','red');
+						 $(\"th\").css('text-align','center');
+						 $(\"th\").css('font-weight','bold');
+					} ); 
+					</script>";
+					generateAdminTableHTML($header,$arr,$actions);
+					generatePagerHTML("../../../");
+				?>									
+<?php 
+//lay out
+include $level.'template/admin/admin_sidebar.php';
+include $level.'template/admin/admin_footer.php';
+?>

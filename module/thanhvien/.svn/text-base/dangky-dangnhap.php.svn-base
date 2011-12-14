@@ -1,0 +1,99 @@
+<?php
+include_once 'htinmotion/orm/adodb5/adodb.inc.php';
+include_once 'htinmotion/orm/general/general.php';
+include_once 'htinmotion/orm/resources/class.database.php';
+include_once 'htinmotion/orm/generated_classes/class.urc_member.php';
+include_once 'template/admin/raiseerror.php';
+if (array_key_exists('formdangnhap', $_POST)) 
+{	
+	$g=new general();
+	$sql="select * from urc_member where member_user='".$_POST["tendangnhap"]
+		."' and member_pass='".md5($_POST["matkhau"])."'";
+	$mem=$g->getSQL($sql,0);
+	if	($mem[0])
+	{
+		$g->executeSQL("update urc_member set member_playing='no' where member_id=".$mem[0]["member_id"]);
+		$_SESSION["mem"]=$mem[0];
+		
+		redirect("Chào mừng bạn đến với chương trình Giảm Cân Cùng Bạn!","trang-chu.php");
+	}
+	else $error="<script>alert('Tên đăng nhập hoặc mật khẩu chưa chính xác !!') </script>";
+}
+?>
+<div id="blanket" style="display:none;"></div>
+<!--DANG NHAP-->
+<div id="popUpDiv" style="display:none;">
+<div class="head">Đăng nhập</div>
+<div class="close"><a href="#" onclick="popup('popUpDiv')">ĐÓNG</a></div>
+Vui lòng đăng nhập để có thể sử dụng các tiện ích trên website, như nhật ký giảm cân, tham dự trò chơi có thưởng... Nếu bạn chưa phải là thành viên, hãy <a href="#" onclick="popup('popUpDiv');popup('popUpDiv2')">đăng ký ngay!</a><br><br>
+<form action="" method="POST" name="formdangnhap">
+<input type="hidden" name="formdangnhap" value="1"/> 
+<table width="250" cellpadding="2" cellspacing="2" align="center">
+<tr>
+<td><strong>Tên đăng nhập:</strong></td><td><input name="tendangnhap" type="text"></td>
+</tr>
+<tr>
+<td><strong>Mật khẩu:</strong></td><td><input name="matkhau" type="password"></td>
+
+</tr>
+<tr><td></td><td><input name="dangnhapsubmit" type="submit" value="Đăng nhập" class="button"></td></tr>
+</table>
+</form>
+</div>
+<!--/DANG NHAP-->
+
+<!--DANG KY-->
+<script type="text/javascript">
+$(document).ready(function(){
+var loadUrl = "module/thanhvien/verify_dangky.php";  
+$.post()
+	$("#dangkysubmit").click(function(){
+		$("#dangky_verify").html("loading...");
+		$.post(
+			loadUrl,
+			{
+				tendangnhap:$('#tendangnhap').val(),
+				hoten	: $('#hoten').val(),
+				matkhau	:$('#matkhau').val(),
+				matkhau2:$('#matkhau2').val(),
+				diachi	:$('#diachi').val(),
+				email	:$('#email').val(),
+				dienthoai:$('#dienthoai').val(),
+				cmnd	:$('#cmnd').val(),				
+								 },
+			function(responseText){
+				$("#dangky_verify").html(responseText);
+			},
+			"html"
+		);
+	});
+});
+</script>
+<div id="popUpDiv2" style="display:none;">
+<div class="head">Đăng ký</div>
+<div class="close"><a href="#" onclick="popup('popUpDiv2')">ĐÓNG</a></div>
+<form   name="formdangky">
+<input type="hidden" name="formdangky" value="1"/> 
+<table width="100%" cellpadding="3" cellspacing="3">
+<tr>
+<td><strong>Tên đăng nhập:</strong></td><td><input name="tendangnhap" id="tendangnhap" type="text"></td>
+<td><strong>Họ tên:</strong></td><td><input name="hoten" id="hoten" type="text"></td>
+</tr>
+<tr>
+<td><strong>Mật khẩu:</strong></td><td><input name="matkhau" id="matkhau" type="password"></td>
+<td><strong>Địa chỉ:</strong></td><td><input name="diachi" id="diachi" type="text"></td>
+</tr>
+<tr>
+<td><strong>Nhập lại mật khẩu:</strong></td><td><input name="matkhau2" id="matkhau2" type="password"></td>
+<td><strong>CMND:</strong></td><td><input name="cmnd" id="cmnd" type="text"></td>
+</tr>
+<tr>
+<td><strong>Email:</strong></td><td><input name="email" id="email" type="text"></td>
+<td><strong>Điện thoại:</strong></td><td><input name="dienthoai" id="dienthoai" type="text"></td>
+</tr>
+<tr><td colspan="4" align="center"><br /><input name="dangkysubmit" id="dangkysubmit"  type="button" value="Đăng ký" class="button"> <input name="dangkyreset" type="reset" value="Nhập lại" class="button"></td></tr>
+</table>
+</form>
+</div>
+<div id="dangky_verify"></div>
+<!--/DANG KY-->

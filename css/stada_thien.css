@@ -1,0 +1,28 @@
+.topnews {
+
+}
+a.pg_current{
+	color:red;	
+	}	
+.news_desc{
+	float:left;width:250px;font-size:11px;
+	}
+.news_desc p{
+	line-height:15px;
+	height:60px;	
+	overflow:hidden;
+	*margin-top:-2px;/*IE*/	
+
+	}
+.news_desc a.title{
+	line-height:15px;
+	height:30px;	
+	overflow:hidden;
+	}
+.reply input {
+	
+	width: 171px;/*IE*/	
+
+}	
+
+	/*PAGING*/

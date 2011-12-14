@@ -1,0 +1,33 @@
+<?php 
+$level='../../../';
+//1 database config
+include $level.'config.php';
+//2 neccessary library
+include $level.'htinmotion/orm/adodb5/adodb.inc.php';
+include $level.'htinmotion/orm/general/general.php';
+include $level.'template/admin/tablepager.php';//pager html
+include $level.'template/admin/tablerender.php';//pager html
+//3 lay out
+include $level.'template/admin/admin_head.php';
+include $level.'template/admin/admin_header.php';
+?>
+<script  type="text/javascript" src="http://www.google.com/jsapi?key=<?php echo RSS_KEY ?>"></script>
+     <script>
+         google.load("feeds", "1");
+         function initialize() {
+             var feedControl = new google.feeds.FeedControl();
+             feedControl.addFeed("http://www.24h.com.vn/upload/rss/tintuctrongngay.rss", "24 H Tin Tuc");
+             feedControl.addFeed("http://vnexpress.net/rss/gl/trang-chu.rss", "VN Express");
+             feedControl.addFeed("http://chuyentrang.tuoitre.vn/thethao/RssView.aspx?ChannelID=252", "Tuoi Tre The Thao");
+             feedControl.addFeed("http://sports.espn.go.com/espn/rss/news", "ESPN News");
+             feedControl.draw(document.getElementById("feedControl"), { drawMode: google.feeds.FeedControl.DRAW_MODE_TABBED });
+         }
+         google.setOnLoadCallback(initialize);
+
+     </script>
+     <div id="feedControl" style="width:100%">loading</div>
+<?php 
+//lay out
+include $level.'template/admin/admin_sidebar.php';
+include $level.'template/admin/admin_footer.php';
+?>

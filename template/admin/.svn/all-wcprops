@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/stada/!svn/ver/28/stada/template/admin
+END
+admin_head.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/stada/!svn/ver/28/stada/template/admin/admin_head.php
+END
+raiseerror.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/stada/!svn/ver/24/stada/template/admin/raiseerror.php
+END
+admin_header.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/stada/!svn/ver/14/stada/template/admin/admin_header.php
+END
+admin_sidebar.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/stada/!svn/ver/17/stada/template/admin/admin_sidebar.php
+END
+admin_footer.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/stada/!svn/ver/14/stada/template/admin/admin_footer.php
+END
+tablepager.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/stada/!svn/ver/33/stada/template/admin/tablepager.php
+END
+tablerender.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/stada/!svn/ver/33/stada/template/admin/tablerender.php
+END

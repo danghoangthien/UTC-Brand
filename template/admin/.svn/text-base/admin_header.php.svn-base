@@ -1,0 +1,8 @@
+<body>
+<div id="wrapper">
+<div id="header">
+		<strong>Stada Admin Panel</strong>	
+</div><!-- #header-->
+<div id="middle">
+		<div id="container">
+<?php ?>

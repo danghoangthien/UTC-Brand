@@ -1,0 +1,47 @@
+<?php 
+$level='../../../';
+//1 database config
+include $level.'config.php';
+//2 neccessary library
+include $level.'htinmotion/orm/adodb5/adodb.inc.php';
+include $level.'htinmotion/orm/adodb5/tohtml.inc.php';
+include $level.'htinmotion/orm/general/general.php';
+include $level.'htinmotion/fckeditor/fckeditor.php';
+//3 lay out
+include $level.'template/admin/admin_head.php';
+include $level.'template/admin/admin_header.php';
+//4 code behind
+include $level.'htinmotion/orm/resources/class.database.php';
+include $level.'htinmotion/orm/generated_classes/class.todaytopic_type.php';
+include $level.'htinmotion/orm/generated_classes/class.todaytopic.php';
+//5 coding structure
+//5.1 get id from listpage to parse into form
+if (isset($_GET))
+{
+	if(isset($_GET['d_id']))
+	{
+		$todaytopic_type_id = $_GET['d_id'];
+		$todaytopic_type=new todaytopic_type();
+		$todaytopic_type->select($todaytopic_type_id);
+		$navi_id=$todaytopic_type->navi_id;
+		$todaytopic_type_title=$todaytopic_type->todaytopic_type_title;
+		$g= new general();
+		if (sizeof($g->getSQL("select * from todaytopic where todaytopic_type_id=".$todaytopic_type_id))>0)
+			echo "<h3>Can not delete this type,please delete topic first</h3><h3><a href='listtopictype.php'>To Topic List</a></h3>";	
+		else
+			{//delete record+folder+navigation menu
+			$todaytopic_type->delete($todaytopic_type_id);
+			$todaytopic_type_title =iconv("UTF-8", "Windows-1252", $todaytopic_type_title);
+		   
+			if(is_dir("../../../topic_resource/".$todaytopic_type_title))	rmdir("../../../topic_resource/".$todaytopic_type_title);
+			$g->executeSQL("delete from admin_navigation where navi_id=".$navi_id." or navi_parent_id=".$navi_id);
+			echo "<h3>Delete Succesfull In DB + Folder Resource</h3><h3><a href='javascript:history.go(-1)'>To Topic List</a></h3>";		
+			}			
+	}	
+}
+?>					
+<?php 
+//lay out
+include $level.'template/admin/admin_sidebar.php';
+include $level.'template/admin/admin_footer.php';
+?>

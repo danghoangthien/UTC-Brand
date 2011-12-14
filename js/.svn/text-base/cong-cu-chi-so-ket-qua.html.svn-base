@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Orlistat Stada</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link media="screen" type="text/css" href="stada.css" rel="stylesheet">
+<script type="text/javascript" language="javascript" src="js/csspopup.js"></script>
+</head>
+<body>
+<div id="blanket" style="display:none;"></div>
+
+<!--DANG NHAP-->
+<div id="popUpDiv" style="display:none;">
+
+<div class="head">Đăng nhập</div>
+<div class="close"><a href="#" onclick="popup('popUpDiv')">ĐÓNG</a></div>
+Vui lòng đăng nhập để có thể sử dụng các tiện ích trên website, như nhật ký giảm cân, tham dự trò chơi có thưởng... Nếu bạn chưa phải là thành viên, hãy <a href="#" onclick="popup('popUpDiv');popup('popUpDiv2')">đăng ký ngay!</a><br><br>
+<form action="dang-nhap.php" method="get" name="formdangky">
+<table width="250" cellpadding="2" cellspacing="2" align="center">
+<tr>
+<td><strong>Tên đăng nhập:</strong></td><td><input name="tendangnhap" type="text"></td>
+</tr>
+<tr>
+<td><strong>Mật khẩu:</strong></td><td><input name="matkhau" type="password"></td>
+</tr>
+<tr><td></td><td><input name="dangnhapsubmit" type="submit" value="Đăng nhập" class="button"></td></tr>
+</table>
+</form>
+</div>
+<!--/DANG NHAP-->
+
+<!--DANG KY-->
+<div id="popUpDiv2" style="display:none;">
+<div class="head">Đăng ký</div>
+<div class="close"><a href="#" onclick="popup('popUpDiv2')">ĐÓNG</a></div>
+<form action="dang-ky.php" method="get" name="formdangky">
+<table width="100%" cellpadding="3" cellspacing="3">
+<tr>
+<td><strong>Tên đăng nhập:</strong></td><td><input name="tendangnhap" type="text"></td>
+<td><strong>Họ tên:</strong></td><td><input name="hoten" type="text"></td>
+</tr>
+<tr>
+<td><strong>Mật khẩu:</strong></td><td><input name="matkhau" type="password"></td>
+<td><strong>Địa chỉ:</strong></td><td><input name="hoten" type="text"></td>
+</tr>
+<tr>
+<td><strong>Nhập lại mật khẩu:</strong></td><td><input name="matkhau2" type="password"></td>
+<td><strong>CMND:</strong></td><td><input name="cmnd" type="text"></td>
+</tr>
+<tr>
+<td><strong>Email:</strong></td><td><input name="email" type="text"></td>
+<td><strong>Điện thoại:</strong></td><td><input name="dienthoai" type="text"></td>
+</tr>
+<tr><td colspan="4" align="center"><br /><input name="dangkysubmit" type="submit" value="Đăng ký" class="button"> <input name="dangkyreset" type="reset" value="Nhập lại" class="button"></td></tr>
+</table>
+</form>
+</div>
+<!--/DANG KY-->
+
+<center>
+<!--HEADER-->
+<div id= "header" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="830">&nbsp;</td>
+        <td width="24" align="right"><img src="img/top_r.png" width="24" height="26"></td>
+        <td class="toplink"><a href="#" onclick="popup('popUpDiv')">Đăng nhập</a></td>
+        <td width="50" align="left"><img src="img/top_l.jpg" width="9" height="26"></td>
+      </tr>
+</table>
+<div style="margin:0px;padding:0px;">
+      <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1003" height="160">
+          <param name="movie" value="flash/top.swf">
+          <param name="quality" value="high">
+          <param name="wmode" value="transparent">
+          <param name="swfversion" value="6.0.65.0">
+          <param name="expressinstall" value="Scripts/expressInstall.swf">
+          <!--[if !IE]>-->
+          <object type="application/x-shockwave-flash" data="flash/top.swf" width="1003" height="160">
+            <!--<![endif]-->
+            <param name="quality" value="high">
+            <param name="wmode" value="transparent">
+            <param name="swfversion" value="6.0.65.0">
+            <param name="expressinstall" value="Scripts/expressInstall.swf">
+            <div>
+              <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+              <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" /></a></p>
+            </div>
+            <!--[if !IE]>-->
+          </object>
+          <!--<![endif]-->
+        </object>
+</div>
+</div>
+<!--/HEADER-->
+
+<div id="bodycont" align="center">
+<table border="0" cellpadding="0" cellspacing="0" id="bg_congcu">
+	<tr>
+    <td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+	<td id="bodymenu_congcu">
+    <div id="bodymenu_nav">
+    
+    <!-- MENU NGANG -->
+    <a>Công cụ &raquo; Chỉ số đo lường</a>
+    <!--HET MENU NGANG-->
+    
+    </div>
+    <div id="searchform">
+    
+    <!-- SEARCH FORM -->
+   <form action="tim-kiem.php" method="get" name="searchform">
+   <input name="keywords" type="text" value="Tìm kiếm" onFocus="searchform.keywords.value=''"><input name="search" type="submit" value="" class="submit">
+   </form>
+    <!--HET SEARCH FORM-->
+    
+    </div>
+    
+    </td>
+	</tr>
+	<tr>
+	<td style="background: url('img/congcu_top.jpg') no-repeat top">
+    <div class="congcu_menu">
+    <a href="cong-cu-chi-so.html"><img src="img/congcu_iconchiso.png"> Chỉ số đo lường</a>
+    <a href="cong-cu-lich-giam-can.html"><img src="img/congcu_iconlich.png"> Lịch giảm cân</a>
+    <a href="cong-cu-nhat-ky.html"><img src="img/congcu_iconnhatky.png"> Nhật ký giảm cân</a>
+    <a href="cong-cu-trac-nghiem.html"><img src="img/congcu_iconquiz.png"> Trắc nghiệm</a>
+    </div>
+    <div class="sanpham_conent">
+
+<div class="chiso">
+<div class="head"><img src="img/congcu_chiso_head1.png" /></div>
+<div class="body">
+<table width="100%" cellpadding="10" cellspacing="10">
+<tr valign="top">
+<td width="450">
+<div align="center"><img src="img/congcu_chiso1.jpg" width="285" height="116" /></div><br />
+Tổ chức Y tế Thế giới khuyến cáo dùng chỉ số khối cơ thể BMI (Body Mass Index) để đánh giá tình trạng thừa cân (béo phì) của người trưởng thành. Kết quả đánh giá dưa trên tiêu chuẩn phân loại béo phì cho cộng đồng các nước Châu Á Thái Bình Dương.
+</td>
+<td class="form">
+Hãy nhập chiều cao, cân nặng của bạn để tính chỉ số BMI.<br /><br />
+<form action="cong-cu-bmi.php" method="get" name="bmi">
+<input name="chieucao" type="text" value="Chiều cao (cm)"/>
+<input name="cannang" type="text" value="Cân nặng (kg)" />
+<div align="right"><input name="bmisubmit" type="submit" value="Tính" class="button"/></div>
+</form>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div id="ketqua">
+<p class="head">Kết quả: 17</p>
+<p>Chào bạn, chỉ số MBI của bạn cho thấy bạn là người có dáng người gầy và nhẹ cân. Để chăm sóc cho cơ thể toàn diện và khỏe mạnh hơn, mời bạn vào mục Tư vấn để  nhận được lời khuyên từ chuyên gia nhé. Bạn còn chần chờ gì mà không đặt câu hỏi cho chuyên gia ngay bây giờ!</p>
+<p><a href="tu-van.php">Đặt câu hỏi với chuyên gia &raquo;</a></p>
+<br />
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr valign="top">
+		<td width="65%" style="padding-right: 10px;">   
+        <p class="head">Bài viết tham khảo</p>   
+        <div class="news">
+        <div class="smallthumb"><img src="img/exam2.jpg"></div>
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt...</div>
+        </div>
+        <div class="news">
+        <div class="smallthumb"><img src="img/exam2.jpg"></div>
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div>
+        </div>
+        
+        <div class="news">
+        <div class="smallthumb"><img src="img/exam2.jpg"></div>
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div>
+        </div>
+        
+        <div class="news">
+        <div class="smallthumb"><img src="img/exam2.jpg"></div>
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div>
+        </div>
+        
+        <div class="news">
+        <div class="smallthumb"><img src="img/exam2.jpg"></div>
+          <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>
+            Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div></div> 
+        
+        <div class="news">
+        <div class="smallthumb"><img src="img/exam2.jpg"></div>
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div></div>         
+        </td>
+        
+        <td width="35%" style="padding-left: 10px;">
+        <p class="head">Lời khuyên từ Stada</p>       
+        <div class="news">
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt...</div>
+        </div>
+        <div class="news">
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div>
+        </div>
+        
+        <div class="news">
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div>
+        </div>
+        
+        <div class="news">
+
+        <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div>
+        </div>
+        
+        <div class="news">
+          <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>
+            Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div></div>
+            
+            <div class="news">
+          <div><a href="thao-luan-chi-tiet.html">Những thực phẩm tác dụng giảm cân tốt nhất </a><br>
+            Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới đây, chúng vừa ngon miệng vừa có tác dụng giảm cân rất tốt. Nếu muốn giảm cân một cách hiệu quả, bạn có thể thử dùng những loại thực phẩm dưới...</div></div>          
+        </td>
+        
+	</tr>
+    </table>
+</p>
+</div>
+
+
+    </div>
+    </td>
+    </tr>
+    <tr>
+		<td>
+			<img src="img/foot_sanpham.jpg" width="1000" height="31" alt=""></td>
+	</tr>
+    <tr>
+		<td id="footer">
+			Copyright © 2010 STADA Vietnam. All rights reserved. <a href="http://www.facebook.com/pages/Giam-can-cung-ban/118828588178622" target=_blank><img src="img/facebook.png"></a></td>
+	</tr>
+    </table>
+    </td></tr>
+
+</table>
+        
+
+</body>
+</html>

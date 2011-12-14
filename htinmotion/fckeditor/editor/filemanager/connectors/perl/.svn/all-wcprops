@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl
+END
+config.pl
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/config.pl
+END
+io.pl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/io.pl
+END
+upload_fck.pl
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/upload_fck.pl
+END
+basexml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/basexml.pl
+END
+upload.cgi
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/upload.cgi
+END
+util.pl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/util.pl
+END
+commands.pl
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/commands.pl
+END
+connector.cgi
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/stada/!svn/ver/14/stada/htinmotion/fckeditor/editor/filemanager/connectors/perl/connector.cgi
+END

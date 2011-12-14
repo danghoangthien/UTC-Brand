@@ -1,0 +1,244 @@
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>HP Portal Admin Page</title>
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arial:regular,bold">
+	<link rel="stylesheet" href="../../theme/whitelabelTheme/css/style.css">
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="../../theme/whitelabelTheme/css/light/theme.css" id="themestyle">
+    <link rel="stylesheet" href="../../elfinder-1.2/css/elfinder.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" class="theme"> -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Apple iOS and Android stuff -->
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="../../theme/whitelabelTheme/apple-touch-icon-precomposed.png">
+    <link href="../../js/facebox/facebox.css" rel="stylesheet" type="text/css" media="screen" />
+	<style>
+	.cursor{
+		cursor:pointer;
+		}
+	.highlight{
+		color:#0099cc;
+		font-weight:bold;
+	}	
+	</style>
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+    <script src="../../js/browser.js"></script>
+    <script src="../../js/jquery.client.js"></script>
+    
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->	
+	<!-- some basic functions -->
+    
+	<script src="../../theme/whitelabelTheme/js/functions.js"></script>		
+    
+	<!-- all Third Party Plugins -->
+    <script src="../../theme/whitelabelTheme/js/plugins.js"></script>
+    <script src="../../theme/whitelabelTheme/js/datatables.js"></script>
+    <!--
+    
+	<script src="../../theme/whitelabelTheme/js/editor.js"></script> 
+	<script src="../../theme/whitelabelTheme/js/calendar.js"></script>
+	<script src="../../theme/whitelabelTheme/js/flot.js"></script>
+	<script src="../../theme/whitelabelTheme/js/elfinder.js"></script>
+	<script src="../../theme/whitelabelTheme/js/datatables.js"></script>    
+	<!-- all Whitelabel Plugins -->
+    <!--
+	<script src="../../theme/whitelabelTheme/js/wl_Alert.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Autocomplete.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Breadcrumb.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Calendar.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Chart.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Color.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Date.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Editor.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_File.js"></script>
+
+	<script src="../../theme/whitelabelTheme/js/wl_Dialog.js"></script>
+
+	<script src="../../theme/whitelabelTheme/js/wl_Fileexplorer.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Form.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Gallery.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Number.js"></script>
+	<!--
+    <script src="../../theme/whitelabelTheme/js/wl_Password.js"></script>
+    -->
+    <!--
+	<script src="../../theme/whitelabelTheme/js/wl_Slider.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Store.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Time.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Valid.js"></script>
+	<script src="../../theme/whitelabelTheme/js/wl_Widget.js"></script>
+    
+	 <!--all Other plugin-->
+    <script src="../../js/ht_plugin/selectbind.js"></script>
+    <script src="../../elfinder-1.2/js/elfinder.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../elrte-1.3/js/elrte.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery.url2.js"></script>
+    <script src="../../js/jquery.tmpl.js"></script>
+    <script src="../../js/ht_plugin/pagebind.js"></script>
+    <script src="../../js/facebox/facebox.js"></script> 
+    <script src="../../js/uploadify/swfobject.js" ></script>
+    <script src="../../js/uploadify/jquery.uploadify.v2.1.4.min.js" ></script>
+	<!-- configuration to overwrite settings
+	<script src="../../theme/whitelabelTheme/js/config.js"></script>
+	 -->
+	<!-- the script which handles all the access to plugins etc...
+	<script src="../../theme/whitelabelTheme/js/script.js"></script>
+     -->
+	<script>
+		$.fn.ready(function(){
+			//Header navigation for smaller screens
+			
+			var $headernav = $('ul#headernav');
+			$headernav.bind('click',function(){
+				//if(window.innerWidth > 800) return false;
+				var ul = $headernav.find('ul').eq(0);
+				(ul.is(':hidden')) ? ul.addClass('shown') : ul.removeClass('shown');
+			});
+			$headernav.find('ul > li').bind('click',function(event){
+				event.stopPropagation();
+				var children = $(this).children('ul');
+				
+				if(children.length){
+					(children.is(':hidden')) ? children.addClass('shown') : children.removeClass('shown');
+				}
+			});
+			//Main Navigation		
+			var $nav = $('#nav');
+			$nav.delegate('li','click.wl', function(event){
+				var _this = $(this),
+					_parent = _this.parent(),
+					a = _parent.find('a');
+				_parent.find('ul').slideUp('fast');
+				a.removeClass('active');
+				_this.find('ul:hidden').slideDown('fast');
+				_this.find('a').eq(0).addClass('active');
+				event.stopPropagation();
+			});
+			/*----------------------------------------------------------------------*/
+			/* datatable plugin
+			/*----------------------------------------------------------------------*/
+			//$("table.datatable").dataTable();
+			$("textarea, input").not('input[type=submit], textarea.html').uniform();
+			var path=$.url().attr("path");
+			$("a[active]").each(function(){
+				if( path.indexOf($(this).attr("active"))>0 )
+				{
+					$(this).addClass("active").trigger("click");
+				}
+			});
+			$.datepicker.regional['vi'] = {
+				closeText: 'Đóng',
+				prevText: '&#x3c;Trước',
+				nextText: 'Tiếp&#x3e;',
+				currentText: 'Hôm nay',
+				monthNames: ['Tháng Một', 'Tháng Hai', 'Tháng Ba', 'Tháng Tư', 'Tháng Năm', 'Tháng Sáu',
+				'Tháng Bảy', 'Tháng Tám', 'Tháng Chín', 'Tháng Mười', 'Tháng Mười Một', 'Tháng Mười Hai'],
+				monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+				'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+				dayNames: ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'],
+				dayNamesShort: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+				dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+				weekHeader: 'Tu',
+				dateFormat: 'yy-mm-dd',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''};
+			$.datepicker.setDefaults($.datepicker.regional['vi']);
+			$( ".datepicker" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			buttonImage: "images/calendar.gif"
+			});
+
+		})
+    </script>
+    <script type="text/javascript">
+		$("button[location]").live('click',function(){
+					location.href=$(this).attr("location");
+		});//../product/new_form.aspx
+		$("td img").live('click',function(){
+				jQuery.facebox("<img src='"+$(this).attr('src')+"'/>")
+		});
+		function bindToFormJson(json){// rows 0 row
+			$.each(json.rows, function() {
+			  $.each(this, function(key, row) {
+				  $.each(row, function(k, v) {
+					 
+				  	if($("#"+k).is("input[type='text']")|| $("#"+k).is("textarea") ||  $("#"+k).is("input[type='hidden']") )  
+				 	{
+							$( "#"+k ).val(v);
+							
+					}
+				 	if( $("#"+k).is("select") ) 
+					{
+						$( "#"+k ).val(v); //alert(k+" : "+v);
+						$( "#"+k+" option[value='"+v+"']" ).attr("selected","selected");
+					}
+				    if( $("#"+k).is("span")||$("#"+k).is("div")||$("#"+k).is("strong"))
+					{
+						$( "#"+k ).html(v);
+					}	
+				  });
+				/// do stuff
+			  });
+			});
+					
+		}
+		function uploadBinding(selector,display,folder) {
+       //jQuery.facebox("u");
+ 
+            $(selector).uploadify(
+                {
+                'uploader'    : '../../js/uploadify/uploadify.swf',
+		        'script'      : '../../js/uploadify/uploadify.php',
+		        'cancelImg'   : '../../js/uploadify/cancel.png',
+		        'buttonImg'   : '../../js/uploadify/all24_upload_filebut.png',
+		        'wmode'       : 'transparent',
+		        'folder'      : folder,
+		        'width'       : 76,
+		        'height'	  : 26,
+		        'auto'        : true,
+		        'displayData' : 'speed',
+		        'sizeLimit'   : 10000000,
+		        'fileExt'     : '*.jpg;*.bmp;*.jpeg;*.png;',              
+		        'fileDesc'    : 'Các file dưới dạng : JPEG,JPG,PNG,BMP',
+		        'onComplete'  : function(event, ID, fileObj, response, data) {
+		                            $(display).attr("src","../.."+folder+response).css("width","150px")
+		                            .click(function(){
+		                                jQuery.facebox("<img src='"+$(display).attr("src")+"'/>");    
+		                            });
+		                            $(selector).val(response);
+									//jQuery.facebox("<img src='"+folder+response+"'/>");    
+									//jQuery.facebox(response);    
+		                       },
+				'onError': function (a, b, c, d) {
+					if (d.status == 404)
+					jQuery.facebox('Could not find upload script. Use a path relative to: '+'<?= getcwd() ?>');
+					else if (d.type === "HTTP")
+					
+					jQuery.facebox("Error: "+d.type+" Info: "+d.info);
+					else if (d.type ==="File Size")
+					jQuery.facebox(c.name+' '+d.type+' Limit: '+Math.round(d.sizeLimit/1024)+'KB');
+					else
+					jQuery.facebox('error '+d.type+": "+d.text);
+					}  
+                }
+				
+            );       
+    }
+		function stripQuote(string) { 
+		return string.replace(/'/g, '&#39;'); 
+		}
+    </script>

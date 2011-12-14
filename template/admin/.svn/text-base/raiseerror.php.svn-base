@@ -1,0 +1,23 @@
+<?php
+function raiseerror($array)
+{
+	if (is_array($array))
+	{
+		echo"<h2>Bạn hãy hòan thành các thông tin chưa hợp lệ sau</h2>";
+		echo "<p class='validation_error' style='color:red'>";
+		foreach ($array as $key=> $value)
+		{
+			echo "<h3 style='color:red'>".$value."<h3/>";			 
+		}
+		echo "</p>";
+	}
+}
+function appendError($array)
+{
+	if (is_array($array))
+	{
+		$message="<span>Bạn hãy hòan thành các thông tin chưa hợp lệ sau</span><br/>";
+		foreach ($array as $key=> $value){$message.= "<span style='color:red'>".$value."</span><br/>";}		
+	}
+	return $message;
+}

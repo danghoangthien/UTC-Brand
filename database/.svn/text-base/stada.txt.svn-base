@@ -1,0 +1,597 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 2.10.3
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Generation Time: Nov 04, 2010 at 06:32 PM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Database: `stada`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `admin_navigation`
+-- 
+
+DROP TABLE IF EXISTS `admin_navigation`;
+CREATE TABLE IF NOT EXISTS `admin_navigation` (
+  `navi_id` int(11) NOT NULL auto_increment,
+  `navi_name` text,
+  `navi_url` text,
+  `navi_parent_id` int(11) default NULL,
+  `navi_index` int(11) default NULL,
+  PRIMARY KEY  (`navi_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+
+-- 
+-- Dumping data for table `admin_navigation`
+-- 
+
+INSERT INTO `admin_navigation` VALUES (2, 'Add Type', 'page/admin/topictype/addtopictype.php', 1, 1);
+INSERT INTO `admin_navigation` VALUES (3, 'List Type', 'page/admin/topictype/listtopictype.php', 1, 0);
+INSERT INTO `admin_navigation` VALUES (58, 'Manage Luyá»‡n táº­p', '#', 0, 3);
+INSERT INTO `admin_navigation` VALUES (59, 'List Luyá»‡n táº­p', 'page/admin/todaytopic/listtopic.php?type_id=21', 58, 0);
+INSERT INTO `admin_navigation` VALUES (35, 'Manage Tháº£o luáº­n', '#', 0, 2);
+INSERT INTO `admin_navigation` VALUES (39, 'Sub Th&#7843;o lu&#7853;n', 'page/admin/topictype/listtopictype.php?type_id=15', 35, 2);
+INSERT INTO `admin_navigation` VALUES (32, 'Manage Dinh d&#432;&#7905;ng', '#', 0, 1);
+INSERT INTO `admin_navigation` VALUES (31, 'Sub Dinh d&#432;&#7905;ng', 'page/admin/topictype/listtopictype.php?type_id=14', 32, 2);
+INSERT INTO `admin_navigation` VALUES (36, 'List Tháº£o luáº­n', 'page/admin/todaytopic/listtopic.php?type_id=15', 35, 1);
+INSERT INTO `admin_navigation` VALUES (37, 'Add Tháº£o luáº­n', 'page/admin/todaytopic/addtopic.php?type_id=15', 35, 0);
+INSERT INTO `admin_navigation` VALUES (66, 'TV Th&#7843;o lu&#7853;n', 'page/admin/consult/listconsult.php?type_id=15', 35, 3);
+INSERT INTO `admin_navigation` VALUES (34, 'Add Dinh dÆ°á»¡ng', 'page/admin/todaytopic/addtopic.php?type_id=14', 32, 1);
+INSERT INTO `admin_navigation` VALUES (65, 'SUB Giáº£m cÃ¢n', 'page/admin/topictype/listtopictype.php?type_id=22', 62, 2);
+INSERT INTO `admin_navigation` VALUES (33, 'List Dinh dÆ°á»¡ng', 'page/admin/todaytopic/listtopic.php?type_id=14', 32, 0);
+INSERT INTO `admin_navigation` VALUES (62, 'Manage Giáº£m cÃ¢n', '#', 0, 4);
+INSERT INTO `admin_navigation` VALUES (61, 'SUB Luyá»‡n táº­p', 'page/admin/topictype/listtopictype.php?type_id=21', 58, 2);
+INSERT INTO `admin_navigation` VALUES (60, 'Add Luyá»‡n táº­p', 'page/admin/todaytopic/addtopic.php?type_id=21', 58, 1);
+INSERT INTO `admin_navigation` VALUES (64, 'Add Giáº£m cÃ¢n', 'page/admin/todaytopic/addtopic.php?type_id=22', 62, 1);
+INSERT INTO `admin_navigation` VALUES (63, 'List Giáº£m cÃ¢n', 'page/admin/todaytopic/listtopic.php?type_id=22', 62, 0);
+INSERT INTO `admin_navigation` VALUES (54, 'Manage Th&#7875; l&#7885;ai', '#', 0, 0);
+INSERT INTO `admin_navigation` VALUES (55, 'List Th&#7875; l&#7885;ai', 'page/admin/topictype/listtopictype.php', 54, 0);
+INSERT INTO `admin_navigation` VALUES (56, 'Add Th&#7875; l&#7885;ai', 'page/admin/topictype/addtopictype.php', 54, 1);
+INSERT INTO `admin_navigation` VALUES (67, 'TV Dinh d&#432;&#7905;ng', 'page/admin/consult/listconsult.php?type_id=14', 32, 3);
+INSERT INTO `admin_navigation` VALUES (68, 'TV Gi&#7843;m c&#226;n', 'page/admin/consult/listconsult.php?type_id=22', 62, 3);
+INSERT INTO `admin_navigation` VALUES (69, 'TV Luy&#7879;n t&#7853;p', 'page/admin/consult/listconsult.php?type_id=21', 58, 3);
+INSERT INTO `admin_navigation` VALUES (70, 'Manage SaÌ‰n phÃ¢Ì‰m', '#', 0, 5);
+INSERT INTO `admin_navigation` VALUES (71, 'List SaÌ‰n phÃ¢Ì‰m', 'page/admin/todaytopic/listtopic.php?type_id=25', 70, 0);
+INSERT INTO `admin_navigation` VALUES (72, 'Add SaÌ‰n phÃ¢Ì‰m', 'page/admin/todaytopic/addtopic.php?type_id=25', 70, 1);
+INSERT INTO `admin_navigation` VALUES (73, 'SUB SaÌ‰n phÃ¢Ì‰m', 'page/admin/topictype/listtopictype.php?type_id=25', 70, 2);
+INSERT INTO `admin_navigation` VALUES (74, 'TV SaÌ‰n phÃ¢Ì‰m', 'page/admin/consult/listconsult.php?type_id=25', 70, 3);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `choice`
+-- 
+
+DROP TABLE IF EXISTS `choice`;
+CREATE TABLE IF NOT EXISTS `choice` (
+  `choice_id` int(11) NOT NULL auto_increment,
+  `choice_name` text collate utf8_unicode_ci NOT NULL,
+  `choice_content` text collate utf8_unicode_ci NOT NULL,
+  `choice_result` text collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`choice_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `choice`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `consult`
+-- 
+
+DROP TABLE IF EXISTS `consult`;
+CREATE TABLE IF NOT EXISTS `consult` (
+  `consult_id` int(11) NOT NULL auto_increment,
+  `todaytopic_type_id` int(11) default NULL,
+  `consult_datetime` datetime default NULL,
+  `username` text collate utf8_unicode_ci,
+  `email` text collate utf8_unicode_ci,
+  `title` text collate utf8_unicode_ci,
+  `content` text collate utf8_unicode_ci,
+  `status` text collate utf8_unicode_ci,
+  PRIMARY KEY  (`consult_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `consult`
+-- 
+
+INSERT INTO `consult` VALUES (1, 21, '2010-11-04 05:44:37', 'lamgiahuy', 'lamgiahuy@gmail.com', '	\r\n\r\nChÃ¡u muá»‘n há»i loáº¡i thuá»‘c giáº£m cÃ¢n Orlistat mÃ  chÃ¡u Ä‘ang sá»­ dá»¥ng cÃ³ hiá»‡u quáº£ khÃ´ng? Loáº¡i thuá»‘c nÃ y cÃ³ gÃ¢y tÃ¡c dá»¥ng phá»¥ gÃ¬ khÃ´ng?', '', 'disable');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `consult_type`
+-- 
+
+DROP TABLE IF EXISTS `consult_type`;
+CREATE TABLE IF NOT EXISTS `consult_type` (
+  `consult_type_id` int(11) NOT NULL auto_increment,
+  `consult_type_title` text collate utf8_unicode_ci,
+  `consult_type_desc` text collate utf8_unicode_ci,
+  `status` text collate utf8_unicode_ci,
+  PRIMARY KEY  (`consult_type_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `consult_type`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `nutritiontopic`
+-- 
+
+DROP TABLE IF EXISTS `nutritiontopic`;
+CREATE TABLE IF NOT EXISTS `nutritiontopic` (
+  `nutritiontopic_id` int(11) NOT NULL auto_increment,
+  `nutritiontopic_title` text collate utf8_unicode_ci NOT NULL,
+  `nutritiontopic_content` text collate utf8_unicode_ci NOT NULL,
+  `status` text collate utf8_unicode_ci NOT NULL,
+  `dt` datetime NOT NULL,
+  PRIMARY KEY  (`nutritiontopic_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+-- 
+-- Dumping data for table `nutritiontopic`
+-- 
+
+INSERT INTO `nutritiontopic` VALUES (1, 'A', 'ASDFFGGFHGFH', '', '2010-10-07 13:48:41');
+INSERT INTO `nutritiontopic` VALUES (2, 'B', 'GHSHFHFH', '', '2010-10-07 13:49:07');
+INSERT INTO `nutritiontopic` VALUES (3, 'C', 'HDGHDGHGH', '', '2010-10-07 13:49:09');
+INSERT INTO `nutritiontopic` VALUES (4, 'D', 'FHGFHGHGFHDFGH', '', '2010-10-07 13:49:12');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `practiceclip`
+-- 
+
+DROP TABLE IF EXISTS `practiceclip`;
+CREATE TABLE IF NOT EXISTS `practiceclip` (
+  `practiceclip_id` int(11) default NULL,
+  `practiceclip_type` text collate utf8_unicode_ci,
+  `practiceclip_link` text collate utf8_unicode_ci
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- 
+-- Dumping data for table `practiceclip`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `practicetopic`
+-- 
+
+DROP TABLE IF EXISTS `practicetopic`;
+CREATE TABLE IF NOT EXISTS `practicetopic` (
+  `practicetopic_id` int(11) NOT NULL auto_increment,
+  `practicetopic_title` text collate utf8_unicode_ci NOT NULL,
+  `practicetopic_content` text collate utf8_unicode_ci NOT NULL,
+  `practicetopic_type` text collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`practicetopic_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `practicetopic`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `quiz`
+-- 
+
+DROP TABLE IF EXISTS `quiz`;
+CREATE TABLE IF NOT EXISTS `quiz` (
+  `quiz_id` int(11) NOT NULL auto_increment,
+  `quiz_question` text collate utf8_unicode_ci NOT NULL,
+  `status` text collate utf8_unicode_ci NOT NULL,
+  `correct_id` text collate utf8_unicode_ci,
+  `type` text collate utf8_unicode_ci,
+  `quiztopic_id` int(11) default NULL,
+  PRIMARY KEY  (`quiz_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `quiz`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `quizadvice`
+-- 
+
+DROP TABLE IF EXISTS `quizadvice`;
+CREATE TABLE IF NOT EXISTS `quizadvice` (
+  `quizadvice_id` int(11) NOT NULL auto_increment,
+  `quizadvice_content` text collate utf8_unicode_ci,
+  `quizadvice_answer` text collate utf8_unicode_ci,
+  PRIMARY KEY  (`quizadvice_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `quizadvice`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `quizanswer`
+-- 
+
+DROP TABLE IF EXISTS `quizanswer`;
+CREATE TABLE IF NOT EXISTS `quizanswer` (
+  `quizanswer_id` int(11) NOT NULL auto_increment,
+  `quizanswer_pattern` text collate utf8_unicode_ci,
+  `quizanswer_content` text collate utf8_unicode_ci,
+  `quiz_id` int(11) default NULL,
+  PRIMARY KEY  (`quizanswer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `quizanswer`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `quiztopic`
+-- 
+
+DROP TABLE IF EXISTS `quiztopic`;
+CREATE TABLE IF NOT EXISTS `quiztopic` (
+  `quiztopic_id` int(11) NOT NULL auto_increment,
+  `quiztopic_content` text collate utf8_unicode_ci,
+  `quiztopic_title` text collate utf8_unicode_ci,
+  PRIMARY KEY  (`quiztopic_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `quiztopic`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `stada_users`
+-- 
+
+DROP TABLE IF EXISTS `stada_users`;
+CREATE TABLE IF NOT EXISTS `stada_users` (
+  `Id` int(11) NOT NULL auto_increment,
+  `username` varchar(100) NOT NULL default '',
+  `password` varchar(100) NOT NULL default '',
+  `realname` varchar(200) NOT NULL default '',
+  `role` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+
+-- 
+-- Dumping data for table `stada_users`
+-- 
+
+INSERT INTO `stada_users` VALUES (1, 'admin', '21232F297A57A5A743894A0E4A801FC3', 'admin', 1);
+INSERT INTO `stada_users` VALUES (16, 'user', 'c9433e5418e7f16ee204831154f73c51', 'MediaGurus', 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tag`
+-- 
+
+DROP TABLE IF EXISTS `tag`;
+CREATE TABLE IF NOT EXISTS `tag` (
+  `tag_id` int(11) NOT NULL auto_increment,
+  `tag_name` text collate utf8_unicode_ci,
+  PRIMARY KEY  (`tag_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `tag`
+-- 
+
+INSERT INTO `tag` VALUES (1, 'BÃ©o');
+INSERT INTO `tag` VALUES (2, 'BÃ¬nh thÆ°á»ng');
+INSERT INTO `tag` VALUES (3, 'Gáº§y');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `todaytopic`
+-- 
+
+DROP TABLE IF EXISTS `todaytopic`;
+CREATE TABLE IF NOT EXISTS `todaytopic` (
+  `todaytopic_id` int(11) NOT NULL auto_increment,
+  `todaytopic_title` text NOT NULL,
+  `todaytopic_content` text NOT NULL,
+  `status` text NOT NULL,
+  `todaytopic_image_large` text,
+  `todaytopic_image_medium` text,
+  `todaytopic_image_small` text,
+  `todaytopic_type_id` int(11) default NULL,
+  `todaytopic_desc` text,
+  `todaytopic_datetime` datetime default NULL,
+  PRIMARY KEY  (`todaytopic_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=85 ;
+
+-- 
+-- Dumping data for table `todaytopic`
+-- 
+
+INSERT INTO `todaytopic` VALUES (1, 'how to??', '<p class="pHead"><input src="http://img.news.zing.vn/sport/336/t336773.jpg" type="image" /></p>\r\n<p class="pHead"><strong>Đội b&oacute;ng của những nh&agrave; tỷ ph&uacute; người Ả Rập sẵn s&agrave;ng chi cho AC Milan 65 triệu euro để c&oacute; được sự phục vụ của tiền đạo Alexandre Pato.</strong></p>\r\n<p class="pHead"><strong><br />\r\n</strong></p>\r\n<p class="pBody">Hiện tại nắm trong tay kh&ocirc;ng &iacute;t ch&acirc;n s&uacute;t c&oacute; tiếng như Carlos Tevez, Roque Santa Cruz, Emmanuel Adebayor hay Mario Balotelli, nhưng HLV Roberto Mancini vẫn muốn c&oacute; th&ecirc;m một tiền đạo đẳng cấp. Theo th&ocirc;ng tin của <em>News of the World</em>, Man City đang l&ecirc;n kế hoạch chi 65 triệu euro để gi&agrave;nh quyền sở hữu ch&acirc;n s&uacute;t Alexandre Pato của Milan.</p>', 'enable', '', '', '', 0, NULL, '2010-11-01 11:10:55');
+INSERT INTO `todaytopic` VALUES (2, 'SÃ¡ng tÃ¡c: :: :: Ca sÄ©: Äan TrÆ°á»ng', '<p><font size="2"><span class="lyric_text">Thuyá»n anh tr&ocirc;i tr&ecirc;n s&ocirc;ng t&igrave;nh em <br />\r\nEm Ä‘&atilde; cho anh gi&acirc;y ph&uacute;t xao Ä‘á»™ng <br />\r\nNgÆ°á»i Æ¡i cho anh Ä‘Æ°á»£c y&ecirc;u <br />\r\n<br />\r\nCho anh Ä‘Æ°á»£c c&oacute; em <br />\r\nNgÆ°á»i y&ecirc;u Æ¡i anh nhÆ° ngÆ°á»i say <br />\r\nEm c&oacute; hay em l&agrave; báº¿n neo dá»«ng <br />\r\nNgÆ°á»i y&ecirc;u Æ¡i xin em Ä‘á»«ng Ä‘i <br />\r\nXin em Ä‘á»«ng há»¯ng há» <br />\r\n<br />\r\nChá» em tr&ecirc;n con Ä‘Æ°á»ng xa <br />\r\nB&oacute;ng h&igrave;nh em nhÆ° mu&ocirc;n sáº¯c hoa <br />\r\nTrong náº¯ng mai ta s&aacute;nh vai <br />\r\nC&ugrave;ng nhau Ä‘áº¿n ch&acirc;n trá»i y&ecirc;u <br />\r\n<br />\r\n&Ocirc;i t&igrave;nh y&ecirc;u</span></font></p>', 'enable', '', 'Penguins.jpg', 'Koala.jpg', 15, '<p>Giá»¯a d&ograve;ng s&ocirc;ng m&ecirc;nh m&ocirc;ng l&atilde;ng du CÆ¡n gi&oacute; &ecirc;m ru th&aacute;ng nÄƒm L&ograve;ng hoang váº¯ng Rá»“i h&ocirc;m nay kh&ocirc;ng l&agrave; mÆ¡ V&ograve;ng tay em ru anh l&agrave;m thÆ¡ Biáº¿t mong chá» Anh biáº¿t b&acirc;y giá» anh Ä‘&atilde; y&ecirc;u </span></font></p>', '2010-11-01 11:15:26');
+INSERT INTO `todaytopic` VALUES (71, 'Ná»—i niá»m doanh nhÃ¢n ', '<p>L&agrave; chá»§ má»™t doanh nghiá»‡p Ä‘&oacute;ng t&agrave;u v&agrave; kinh doanh báº¥t Ä‘á»™ng sáº£n, &ocirc;ng H&agrave; T&ocirc;n  Äá»©c Ä‘Æ°á»£c biáº¿t Ä‘áº¿n kh&ocirc;ng chá»‰ l&agrave; má»™t doanh nh&acirc;n th&agrave;nh Ä‘áº¡t. Sá»± ná»•i tiáº¿ng  cá»§a &ocirc;ng c&ograve;n gáº¯n vá»›i t&ecirc;n ngÆ°á»i vá»£ - diá»…n vi&ecirc;n Ä‘iá»‡n áº£nh Diá»…m My. D&ugrave; &ocirc;ng  Äá»©c sá»‘ng kh&aacute; kh&eacute;p k&iacute;n, thi thoáº£ng má»›i xuáº¥t hiá»‡n chá»‘n Ä‘&ocirc;ng ngÆ°á»i vá»›i vai  tr&ograve; ngÆ°á»i chá»“ng nhÆ°ng kh&ocirc;ng &iacute;t láº§n, &ocirc;ng nháº­n Ä‘Æ°á»£c c&acirc;u há»i Ä‘áº¡i loáº¡i nhÆ°:  &quot;L&agrave;m chá»“ng cá»§a ngÆ°á»i ná»•i tiáº¿ng c&oacute; kh&oacute; kh&ocirc;ng?&quot; hay &quot;Ä&atilde; khi n&agrave;o &ocirc;ng nghÄ©  Ä‘áº¿n viá»‡c d&ugrave;ng h&igrave;nh áº£nh ná»•i tiáº¿ng cá»§a vá»£ Ä‘á»ƒ x&acirc;y dá»±ng thÆ°Æ¡ng hiá»‡u c&ocirc;ng  ty?&quot;.</p>', 'enable', '', 'Hydrangeas.jpg', 'Penguins.jpg', 15, '<p>Viá»‡c sÄƒn ngÆ°á»i t&agrave;i hiá»‡n nay bá»©c thiáº¿t hÆ¡n bao giá» háº¿t buá»™c c&aacute;c &ocirc;ng chá»§ pháº£i chá»§ Ä‘á»™ng lá»¥c lá»i má»i ng&oacute;c ng&aacute;ch Ä‘á»ƒ ph&aacute;t hiá»‡n, thay v&igrave; ngá»“i má»™t chá»— chá» há» Ä‘áº¿n111</p>', '2010-11-01 14:02:37');
+INSERT INTO `todaytopic` VALUES (69, 'Ná»—i niá»m doanh nhÃ¢n cÃ³ vá»£ ná»•i tiáº¿ng', '<p class="Normal">L&agrave; chá»§ má»™t doanh nghiá»‡p Ä‘&oacute;ng t&agrave;u v&agrave; kinh doanh báº¥t  Ä‘á»™ng sáº£n, &ocirc;ng H&agrave; T&ocirc;n Äá»©c Ä‘Æ°á»£c biáº¿t Ä‘áº¿n kh&ocirc;ng chá»‰ l&agrave; má»™t doanh nh&acirc;n th&agrave;nh  Ä‘áº¡t. Sá»± ná»•i tiáº¿ng cá»§a &ocirc;ng c&ograve;n gáº¯n vá»›i t&ecirc;n ngÆ°á»i vá»£ - diá»…n vi&ecirc;n Ä‘iá»‡n áº£nh  Diá»…m My. D&ugrave; &ocirc;ng Äá»©c sá»‘ng kh&aacute; kh&eacute;p k&iacute;n, thi thoáº£ng má»›i xuáº¥t hiá»‡n chá»‘n  Ä‘&ocirc;ng ngÆ°á»i vá»›i vai tr&ograve; ngÆ°á»i chá»“ng nhÆ°ng kh&ocirc;ng &iacute;t láº§n, &ocirc;ng nháº­n Ä‘Æ°á»£c c&acirc;u  há»i Ä‘áº¡i loáº¡i nhÆ°: &quot;L&agrave;m chá»“ng cá»§a ngÆ°á»i ná»•i tiáº¿ng c&oacute; kh&oacute; kh&ocirc;ng?&quot; hay &quot;Ä&atilde;  khi n&agrave;o &ocirc;ng nghÄ© Ä‘áº¿n viá»‡c d&ugrave;ng h&igrave;nh áº£nh ná»•i tiáº¿ng cá»§a vá»£ Ä‘á»ƒ x&acirc;y dá»±ng  thÆ°Æ¡ng hiá»‡u c&ocirc;ng ty?&quot;.</p>\r\n<table width="1" cellspacing="0" cellpadding="3" border="0" align="center">\r\n    <tbody>\r\n        <tr>\r\n            <td><img height="525" width="380" src="http://vnexpress.net/Files/Subject/3B/A2/25/70/du-thuyen--Diem-My.jpg" alt="" /></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="Image">Diá»…n vi&ecirc;n Diá»…m My khoe d&aacute;ng b&ecirc;n du thuyá»n triá»‡u Ä‘&ocirc;.</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p class="Normal">Kh&aacute; tháº³ng tháº¯n v&agrave; cá»Ÿi má»Ÿ khi trao Ä‘á»•i vá»›i <em>VnExpress.net,</em>  &ocirc;ng Äá»©c t&acirc;m sá»±: &quot;T&ocirc;i v&agrave; b&agrave; x&atilde; kh&aacute; Ä‘á»™c láº­p trong c&ocirc;ng viá»‡c, trá»« dáº¡y dá»—  con c&aacute;i. T&ocirc;i l&agrave;m kinh doanh, c&ocirc; áº¥y l&agrave;m nghá»‡ thuáº­t, hai Ä‘á»©a t&acirc;m niá»‡m á»§ng  há»™ nhau háº¿t l&ograve;ng nhÆ°ng kh&ocirc;ng ai can thiá»‡p Ä‘áº¿n lÄ©nh vá»±c cá»§a ai&quot;.</p>\r\n<p class="Normal">20 nÄƒm kinh doanh á»Ÿ Viá»‡t Nam, &ocirc;ng Äá»©c váº«n l&agrave; má»™t Ä‘áº¡i  gia tháº§m láº·ng. Rá»“i má»™t ng&agrave;y, c&ocirc;ng viá»‡c kinh doanh cá»§a &ocirc;ng báº¯t Ä‘áº§u Ä‘Æ°á»£c  má»i ngÆ°á»i Ä‘á»ƒ &yacute; khi b&agrave; x&atilde; xuáº¥t hiá»‡n trong bá»™ áº£nh áº¥n tÆ°á»£ng b&ecirc;n cáº¡nh chiáº¿c  du thuyá»n do c&ocirc;ng ty cá»§a &ocirc;ng nháº­p kháº©u vá». V&agrave; sau khi bá»™ áº£nh Ä‘Æ°á»£c Ä‘Äƒng  táº£i tr&agrave;n lan tr&ecirc;n c&aacute;c trang b&aacute;o máº¡ng, nhiá»u lá»i &quot;b&agrave;n ra t&aacute;n v&agrave;o&quot; chuyá»‡n  chiáº¿c du thuyá»n Ä‘&oacute; kh&ocirc;ng pháº£i do &ocirc;ng Äá»©c l&agrave;m chá»§ m&agrave; chá»‰ l&agrave; Ä‘i mÆ°á»£n.</p>\r\n<p class="normal">Cá»±c cháº³ng Ä‘&atilde;, doanh nh&acirc;n n&agrave;y Ä‘&agrave;nh l&ecirc;n b&aacute;o phá»§ nháº­n tin  Ä‘á»“n. Tuy nhi&ecirc;n, &ocirc;ng Äá»©c cÅ©ng thá»«a nháº­n, ch&ugrave;m áº£nh Diá»…m My chá»¥p c&ugrave;ng  chiáº¿c du thuyá»n l&agrave; má»™t dá»‹p hiáº¿m hoi c&ocirc;ng ty nhá» vá»£ &ocirc;ng quáº£ng b&aacute; h&igrave;nh  áº£nh. Doanh nh&acirc;n n&agrave;y t&acirc;m sá»±: &ldquo;T&ocirc;i Ä‘i l&ecirc;n tá»« 2 b&agrave;n tay tráº¯ng n&ecirc;n kh&ocirc;ng  nghÄ© pháº£i mÆ°á»£n Ä‘áº¿n sá»± ná»•i tiáº¿ng, h&igrave;nh áº£nh cá»§a b&agrave; x&atilde; Ä‘á»ƒ quáº£ng b&aacute;. Táº¥t  nhi&ecirc;n, náº¿u c&ocirc; áº¥y tá»± nguyá»‡n hoáº·c há»— trá»£ th&igrave; cÅ©ng l&agrave; c&aacute;i hay&rdquo;.</p>\r\n<p class="normal">Vá»‹ tá»•ng gi&aacute;m Ä‘á»‘c c&ocirc;ng ty Ä‘&oacute;ng t&agrave;u n&agrave;y cÅ©ng bá»• sung  th&ecirc;m: &ldquo;Ráº¥t nhiá»u ngÆ°á»i t&ograve; m&ograve; há»i t&ocirc;i vá» chuyá»‡n l&agrave;m chá»“ng cá»§a ngÆ°á»i ná»•i  tiáº¿ng. Ä&ocirc;i khi v&igrave; chiá»u l&ograve;ng vá»£, t&ocirc;i cÅ©ng tráº£ lá»i, nhÆ°ng quáº£ tháº­t t&ocirc;i  ráº¥t ngáº¡i chuyá»‡n gia Ä‘&igrave;nh bá»‹ áº£nh hÆ°á»Ÿng, Ä‘á»i sá»‘ng sinh hoáº¡t bá»‹ x&aacute;o trá»™n&rdquo;.</p>\r\n<table width="1" cellspacing="0" cellpadding="3" border="0" align="center">\r\n    <tbody>\r\n        <tr>\r\n            <td><img height="341" width="480" alt="Ca sÄ© Há»“ Ngá»c H&agrave; ''s&aacute;nh Ä‘&ocirc;i'' c&ugrave;ng C&ocirc;ng ty Quá»‘c CÆ°á»ng Gia Lai" src="http://vnexpress.net/Files/Subject/3B/A2/25/70/10.jpg" /></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="Image">Ca sÄ© Há»“ Ngá»c H&agrave; &quot;s&aacute;nh Ä‘&ocirc;i&quot; c&ugrave;ng C&ocirc;ng ty Quá»‘c CÆ°á»ng Gia Lai</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p class="normal">Nguyá»…n Quá»‘c CÆ°á»ng, Ph&oacute; tá»•ng gi&aacute;m Ä‘á»‘c C&ocirc;ng ty Quá»‘c  CÆ°á»ng Gia Lai c&oacute; báº¡n g&aacute;i l&agrave; ca sÄ© Há»“ Ngá»c H&agrave; (c&oacute; con vá»›i CÆ°á»ng). Máº·c d&ugrave;  Há»“ Ngá»c H&agrave; l&agrave; má»™t c&aacute;i t&ecirc;n cá»±c hot v&agrave; l&agrave; h&igrave;nh áº£nh Ä‘áº¡i diá»‡n cho nhiá»u  thÆ°Æ¡ng hiá»‡u danh tiáº¿ng nhÆ°ng CÆ°á»ng kháº³ng kh&ocirc;ng sá»­ dá»¥ng h&igrave;nh áº£nh cá»§a c&ocirc;  Ä‘á»ƒ quáº£ng c&aacute;o cho Quá»‘c CÆ°á»ng Gia Lai. Doanh nh&acirc;n n&agrave;y giáº£i th&iacute;ch, c&aacute;ch l&agrave;m  thÆ°Æ¡ng hiá»‡u cá»§a c&ocirc;ng ty l&agrave; táº­p trung v&agrave;o sáº£n pháº©m chá»© kh&ocirc;ng sá»­ dá»¥ng  ngÆ°á»i ná»•i tiáº¿ng l&agrave;m Ä‘áº¡i diá»‡n h&igrave;nh áº£nh.</p>\r\n<p class="normal">Tr&ecirc;n thá»±c táº¿, c&ocirc;ng ty Quá»‘c CÆ°á»ng Gia Lai vá»›i Ä‘áº¡i diá»‡n  l&agrave; Nguyá»…n Quá»‘c CÆ°á»ng váº«n &ldquo;s&aacute;nh Ä‘&ocirc;i&rdquo; c&ugrave;ng ca sÄ© Há»“ Ngá»c H&agrave; trong má»™t sá»‘  chÆ°Æ¡ng tr&igrave;nh tá»« thiá»‡n. Tr&ecirc;n backdrop cá»§a nhá»¯ng sá»± kiá»‡n n&agrave;y c&ograve;n in r&otilde;  th&ocirc;ng tin vá» sá»± káº¿t há»£p giá»¯a ca sÄ© Há»“ Ngá»c H&agrave; v&agrave; C&ocirc;ng ty Quá»‘c CÆ°á»ng Gia  Lai.</p>\r\n<p class="normal">Kh&aacute;c vá»›i trÆ°á»ng há»£p cá»§a doanh nh&acirc;n H&agrave; T&ocirc;n Äá»©c, trÆ°á»›c  khi quen biáº¿t v&agrave; c&oacute; con vá»›i ca sÄ© há» Há»“, Nguyá»…n Quá»‘c CÆ°á»ng ráº¥t ná»•i tiáº¿ng  vá»›i biá»‡t danh CÆ°á»ng &ldquo;Ä&ocirc;la&rdquo;. Tuy nhi&ecirc;n, biá»‡t danh cá»§a anh n&agrave;y chá»‰ Ä‘em  láº¡i phiá»n phá»©c l&agrave; ch&iacute;nh, c&ograve;n ca sÄ© Há»“ Ngá»c H&agrave; l&agrave; má»™t c&aacute;i t&ecirc;n cá»±c hot  trong ng&agrave;nh quáº£ng c&aacute;o.</p>\r\n<p class="normal">Nguyá»…n Thanh SÆ¡n - Gi&aacute;m Ä‘á»‘c C&ocirc;ng ty truyá»n th&ocirc;ng  T&amp;A Ogylvi c&oacute; vá»£ l&agrave; diá»…n vi&ecirc;n Ä‘iá»‡n áº£nh Há»“ng &Aacute;nh. Kh&ocirc;ng giá»‘ng vá»›i c&aacute;c  doanh nh&acirc;n c&oacute; vá»£ l&agrave; ngÆ°á»i ná»•i tiáº¿ng kh&aacute;c, anh tuy&ecirc;n bá»‘ kh&ocirc;ng muá»‘n c&oacute; sá»±  li&ecirc;n quan giá»¯a chuyá»‡n ri&ecirc;ng tÆ° v&agrave; c&ocirc;ng viá»‡c kinh doanh cá»§a m&igrave;nh. Khi c&oacute;  ai há»i c&ocirc;ng viá»‡c cá»§a m&igrave;nh c&oacute; áº£nh hÆ°á»Ÿng g&igrave; bá»Ÿi sá»± ná»•i tiáº¿ng cá»§a vá»£, anh  Ä‘á»u kh&eacute;o l&eacute;o chuyá»ƒn sang Ä‘á» t&agrave;i kh&aacute;c.</p>', 'enable', '', 'Lighthouse.jpg', 'Penguins.jpg', 15, '<p>Apple báº¯t Ä‘áº§u b&aacute;n m&aacute;y t&iacute;nh báº£ng iPad táº¡i Trung Quá»‘c tá»« th&aacute;ng 9. &quot;Apple  Ä‘&atilde; ki&ecirc;u cÄƒng khi táº£ng lá» ch&uacute;ng t&ocirc;i v&agrave; tiáº¿p tá»¥c kinh doanh iPad á»Ÿ thá»‹  trÆ°á»ng n&agrave;y&quot;, Ä‘áº¡i diá»‡n cá»§a Proview cho hay. &quot;Ngo&agrave;i ra, ch&uacute;ng t&ocirc;i Ä‘ang gáº·p  ráº¯c rá»‘i vá» t&agrave;i ch&iacute;nh v&agrave; thÆ°Æ¡ng hiá»‡u l&agrave; t&agrave;i sáº£n quan trá»ng Ä‘á»ƒ gi&uacute;p c&ocirc;ng  ty vÆ°á»£t qua kh&oacute; khÄƒn&quot;</p>\r\n', '2010-11-01 00:00:00');
+INSERT INTO `todaytopic` VALUES (4, 'how did they do that', '<p>they do that by ...</p>', 'enable', NULL, NULL, NULL, NULL, NULL, '2010-11-01 11:12:26');
+INSERT INTO `todaytopic` VALUES (68, 'Medvedev Ä‘áº¿n Ä‘áº£o tranh cháº¥p vá»›i Nháº­t', '<p>Tá»•ng thá»‘ng Nga Dmitry Medvedev h&ocirc;m nay Ä‘áº¿n Kuril, h&ograve;n Ä‘áº£o Ä‘ang xáº£y ra  tranh cháº¥p giá»¯a Nga v&agrave; Nháº­t Ä‘&atilde; khiáº¿n hai nÆ°á»›c kh&ocirc;ng thá»ƒ k&yacute; hiá»‡p Ä‘á»‹nh h&ograve;a  b&igrave;nh tá»« nÄƒm 1945.Tá»•ng thá»‘ng Nga Dmitry Medvedev h&ocirc;m nay Ä‘áº¿n Kuril, h&ograve;n Ä‘áº£o Ä‘ang xáº£y ra  tranh cháº¥p giá»¯a Nga v&agrave; Nháº­t Ä‘&atilde; khiáº¿n hai nÆ°á»›c kh&ocirc;ng thá»ƒ k&yacute; hiá»‡p Ä‘á»‹nh h&ograve;a  b&igrave;nh tá»« nÄƒm 1945.Tá»•ng thá»‘ng Nga Dmitry Medvedev h&ocirc;m nay Ä‘áº¿n Kuril, h&ograve;n Ä‘áº£o Ä‘ang xáº£y ra  tranh cháº¥p giá»¯a Nga v&agrave; Nháº­t Ä‘&atilde; khiáº¿n hai nÆ°á»›c kh&ocirc;ng thá»ƒ k&yacute; hiá»‡p Ä‘á»‹nh h&ograve;a  b&igrave;nh tá»« nÄƒm 1945.Tá»•ng thá»‘ng Nga Dmitry Medvedev h&ocirc;m nay Ä‘áº¿n Kuril, h&ograve;n Ä‘áº£o Ä‘ang xáº£y ra  tranh cháº¥p giá»¯a Nga v&agrave; Nháº­t Ä‘&atilde; khiáº¿n hai nÆ°á»›c kh&ocirc;ng thá»ƒ k&yacute; hiá»‡p Ä‘á»‹nh h&ograve;a  b&igrave;nh tá»« nÄƒm 1945.Tá»•ng thá»‘ng Nga Dmitry Medvedev h&ocirc;m nay Ä‘áº¿n Kuril, h&ograve;n Ä‘áº£o Ä‘ang xáº£y ra  tranh cháº¥p giá»¯a Nga v&agrave; Nháº­t Ä‘&atilde; khiáº¿n hai nÆ°á»›c kh&ocirc;ng thá»ƒ k&yacute; hiá»‡p Ä‘á»‹nh h&ograve;a  b&igrave;nh tá»« nÄƒm 1945.</p>', 'enable', '', 'Chrysanthemum.jpg', 'Jellyfish.jpg', 15, '<p>H&atilde;ng dá»‹ch vá»¥ Internet Má»¹ Ä‘Äƒng áº£nh vá» Yucca Flat, ná»•i tiáº¿ng l&agrave; &quot;Ä‘iá»ƒm há»©ng chá»‹u nhiá»u vá»¥ ná»• háº¡t nh&acirc;n nháº¥t tr&ecirc;n bá» máº·t tr&aacute;i Ä‘áº¥t&quot;.</p>', '2010-11-01 11:10:26');
+INSERT INTO `todaytopic` VALUES (79, 'Äáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ Vinashi', '<p>Äáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ VinashiÄáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ Vinashi</p>', 'enable', '', 'Desert.jpg', 'Hydrangeas.jpg', 14, '<p>Äáº¡i biá»ƒu Quá»‘c há»™i Ä‘áº·t nghi váº¥n bao che trong vá»¥ Vinashin Buá»•i tháº£o luáº­n vá» kinh táº¿ x&atilde; há»™i s&aacute;ng nay c&oacute; sá»± tham gia cá»§a Thá»§ tÆ°á»›ng v&agrave; nhiá»u bá»™ trÆ°á»Ÿng</p>', '2010-11-01 16:42:29');
+INSERT INTO `todaytopic` VALUES (70, 'HLV Scolari bá»‹ phÃ³ng viÃªn biá»ƒu tÃ¬nh pháº£n Ä‘á»‘i ', '<p class="Normal">Ä&acirc;y kh&ocirc;ng pháº£i l&agrave; láº§n Ä‘áº§u blogger &ldquo;C&ocirc; g&aacute;i Ä‘á»“ long&rdquo; bá»‹  &ldquo;váº¡ miá»‡ng&rdquo; bá»Ÿi nhá»¯ng b&agrave;i viáº¿t tr&ecirc;n trang nháº­t k&yacute; cá»§a m&igrave;nh. NÄƒm 2007,  HÆ°Æ¡ng Tr&agrave; viáº¿t tr&ecirc;n blog vá» live show &ldquo;MÆ°a&rdquo; cá»§a ca sÄ© PhÆ°Æ¡ng Thanh vá»›i  nhá»¯ng b&igrave;nh luáº­n g&acirc;y bá»©c x&uacute;c cho ca sÄ© Ä‘áº¿n ná»—i PhÆ°Æ¡ng Thanh pháº£i khá»Ÿi  kiá»‡n ra t&ograve;a v&igrave; cho ráº±ng blogger n&agrave;y Ä‘&atilde; x&uacute;c pháº¡m danh dá»±, uy t&iacute;n cá»§a  m&igrave;nh.</p>\r\n<p class="Normal">Vá»¥ &aacute;n tr&ecirc;n Ä‘&atilde; Ä‘Æ°á»£c TAND quáº­n T&acirc;n B&igrave;nh (TP HCM) xá»­ cho  HÆ°Æ¡ng Tr&agrave; tháº¯ng kiá»‡n vá»›i l&yacute; do ph&aacute;p luáº­t thá»i Ä‘iá»ƒm Ä‘&oacute; chÆ°a c&oacute; quy Ä‘á»‹nh  vá» xá»­ l&yacute; c&aacute;c trÆ°á»ng há»£p g&acirc;y háº¡i tá»« blog. Tiáº¿p Ä‘&oacute;, cáº¥p ph&uacute;c tháº©m Ä‘&atilde; há»§y  báº£n &aacute;n tr&ecirc;n v&igrave; vi pháº¡m tá»‘ tá»¥ng. Khi vá»¥ &aacute;n quay trá»Ÿ láº¡i nhá»¯ng bÆ°á»›c Ä‘áº§u  ti&ecirc;n, táº¡i cuá»™c h&ograve;a giáº£i, ca sÄ© PhÆ°Æ¡ng Thanh Ä‘&atilde; cháº¥p nháº­n lá»i xin lá»—i cá»§a  HÆ°Æ¡ng Tr&agrave;. Vá»¥ kiá»‡n Ä‘Æ°á»£c kh&eacute;p láº¡i.</p>\r\n<p class="Normal">Äáº¿n ng&agrave;y 23/10, HÆ°Æ¡ng Tr&agrave; bá»‹ Cá»¥c CSÄT tá»™i pháº¡m vá» TTXH  táº¡i TP HCM báº¯t giá»¯ vá» h&agrave;nh vi &quot;lá»£i dá»¥ng c&aacute;c quyá»n tá»± do d&acirc;n chá»§ x&acirc;m  pháº¡m lá»£i &iacute;ch cá»§a Nh&agrave; nÆ°á»›c, quyá»n, lá»£i &iacute;ch há»£p ph&aacute;p cá»§a tá»• chá»©c, c&ocirc;ng  d&acirc;n&rdquo; (Äiá»u 258 BLHS) cÅ©ng v&igrave; má»™t b&agrave;i viáº¿t tr&ecirc;n blog cá»§a m&igrave;nh.</p>', 'enable', '', 'Desert.jpg', 'Hydrangeas.jpg', 15, '<p>Sá»± kiá»‡n L&ecirc; Nguyá»…n HÆ°Æ¡ng Tr&agrave; &ndash; blogger &lsquo;C&ocirc; g&aacute;i Ä‘á»“ long&rsquo;  vá»«a bá»‹ báº¯t Ä‘á»ƒ Ä‘iá»u tra vá» th&ocirc;ng tin li&ecirc;n quan Ä‘áº¿n b&agrave;i Ä‘Äƒng tr&ecirc;n entry  cá»§a c&ocirc; Ä‘&atilde; khiáº¿n nhiá»u ngÆ°á»i bÄƒn khoÄƒn vá» t&iacute;nh tr&aacute;ch nhiá»‡m trÆ°á»›c nhá»¯ng  th&ocirc;ng tin c&ocirc;ng khai tr&ecirc;n web c&aacute; nh&acirc;n.</p>', '2010-11-01 13:35:19');
+INSERT INTO `todaytopic` VALUES (72, 'Má»±c khÃ´ bá»‹ lÃ m giáº£', '<p class="Normal">&Ocirc;ng Nguyá»…n B&igrave;nh Minh, Chi cá»¥c trÆ°á»Ÿng Chi cá»¥c Quáº£n l&yacute;  thá»‹ trÆ°á»ng Háº£i Ph&ograve;ng cho biáº¿t, ng&agrave;y 30/10, chi cá»¥c Ä‘&atilde; tiáº¿n h&agrave;nh ti&ecirc;u há»§y  hÆ¡n má»™t táº¥n má»±c kh&ocirc; x&eacute; kh&ocirc;ng Ä‘áº£m báº£o cháº¥t lÆ°á»£ng tr&ecirc;n. Ä&acirc;y Ä‘á»u l&agrave; h&agrave;ng  Trung Quá»‘c nháº­p láº­u.</p>\r\n<p class="Normal">TrÆ°á»›c Ä‘&oacute;, sá»‘ má»±c kh&ocirc; bá»‹ thu giá»¯ n&agrave;y Ä‘Æ°á»£c láº¥y máº«u gá»­i  ra H&agrave; Ná»™i x&eacute;t nghiá»‡m. Káº¿t quáº£: l&ocirc; h&agrave;ng kh&ocirc;ng Ä‘áº¡t ti&ecirc;u chuáº©n dinh dÆ°á»¡ng  cá»§a má»±c kh&ocirc; theo báº£ng th&agrave;nh pháº§n thá»±c pháº©m Viá»‡t Nam cá»§a Viá»‡n Dinh dÆ°á»¡ng.</p>\r\n<p class="Normal">&quot;Ch&uacute;ng t&ocirc;i kh&ocirc;ng biáº¿t quy tr&igrave;nh sáº£n xuáº¥t loáº¡i má»±c n&agrave;y  nhÆ° tháº¿ n&agrave;o n&ecirc;n kh&ocirc;ng thá»ƒ n&oacute;i Ä‘Æ°á»£c ch&iacute;nh x&aacute;c n&oacute; l&agrave;m báº±ng g&igrave;. Äiá»u Ä‘&aacute;ng  lÆ°u &yacute; l&agrave; loáº¡i má»±c n&agrave;y Ä‘á»ƒ 4-5 th&aacute;ng kh&ocirc;ng bá»‹ má»‘c, trong khi má»±c tá»± nhi&ecirc;n  kh&ocirc;ng Ä‘á»ƒ trong tá»§ láº¡nh th&igrave; chá»‰ ná»­a th&aacute;ng Ä‘&atilde; bá»‹ má»‘c. Äiá»u Ä‘&oacute; chá»©ng tá» n&oacute;  pháº£i c&oacute; cháº¥t báº£o quáº£n&quot;, &ocirc;ng Minh n&oacute;i.</p>\r\n<p class="Normal">V&igrave; tháº¿, theo &ocirc;ng ngÆ°á»i ti&ecirc;u d&ugrave;ng cáº§n cáº£nh gi&aacute;c, lá»±a  chá»n ká»¹, tr&aacute;nh h&agrave;ng kh&ocirc;ng Ä‘áº£m báº£o cháº¥t lÆ°á»£ng. Khi bá»‹ Ä‘á»‘t, má»±c kh&ocirc; nguy&ecirc;n  con thÆ°á»ng quÄƒn láº¡i, ch&aacute;y sun tá»« ngo&agrave;i v&agrave;o, c&ograve;n loáº¡i má»±c bá»‹ thu giá»¯ khi  Ä‘á»‘t th&igrave; ch&aacute;y gáº§n nhÆ° th&agrave;nh than v&agrave; c&oacute; m&ugrave;i kh&eacute;t.</p>\r\n<p class="Normal">TrÆ°á»›c Ä‘&oacute;, táº¡i H&agrave; Ná»™i v&agrave; TP HCM cÅ©ng rá»™ l&ecirc;n th&ocirc;ng tin vá» loáº¡t má»±c kh&ocirc; x&eacute; Äƒn liá»n <a class="Normal" href="http://vnexpress.net/GL/Doi-song/2010/04/3BA1A6B2/">kh&ocirc;ng pháº£i má»±c tháº­t</a>. <em>VnExpress.net</em>  Ä‘&atilde; mang máº«u má»±c n&agrave;y Ä‘áº¿n gáº·p má»™t chuy&ecirc;n gia cá»§a Viá»‡n H&oacute;a há»c (Viá»‡n Khoa  há»c Viá»‡t Nam) Ä‘á»ƒ kiá»ƒm tra. Chuy&ecirc;n gia n&agrave;y cho ráº±ng n&oacute; kh&ocirc;ng Ä‘Æ°á»£c l&agrave;m tá»«  má»±c hay c&aacute;... Má»™t chuy&ecirc;n gia kh&aacute;c vá» c&ocirc;ng nghá»‡ thá»±c pháº©m cÅ©ng cho ráº±ng  Ä‘&acirc;y c&oacute; thá»ƒ l&agrave; má»±c giáº£.</p>\r\n<p class="Normal">Sá»Ÿ Y táº¿ H&agrave; Ná»™i cÅ©ng Ä‘&atilde; láº¥y máº«u má»±c kh&ocirc; x&eacute; Äƒn liá»n táº¡i  má»™t cá»­a h&agrave;ng b&aacute;n Ä‘á»“ kh&ocirc; tr&ecirc;n phá»‘ Báº¡ch Mai, quáº­n Hai B&agrave; TrÆ°ng, Ä‘á»ƒ x&eacute;t  nghiá»‡m. Tuy nhi&ecirc;n, theo káº¿t quáº£ c&ocirc;ng bá»‘ tr&ecirc;n trang web cá»§a Cá»¥c An to&agrave;n  Vá»‡ sinh thá»±c pháº©m, chá»‰ ti&ecirc;u protein kiá»ƒm nghiá»‡m báº±ng 88,4% h&agrave;m lÆ°á»£ng  protein cá»§a c&aacute; má»±c theo báº£ng th&agrave;nh pháº§n thá»±c pháº©m táº¡i Viá»‡t Nam. Do Ä‘&oacute;, <a class="Normal" href="http://vnexpress.net/GL/Doi-song/2010/04/3BA1B026/">chÆ°a c&oacute; sÆ¡ sá»Ÿ káº¿t luáº­n Ä‘&acirc;y l&agrave; má»±c giáº£</a>, má»±c cao su hay má»±c Ä‘Æ°á»£c cháº¿ biáº¿n tá»« xenlulo.</p>', 'enable', '', 'Penguins.jpg', 'Tulips.jpg', 15, '<p>Káº¿t quáº£ gi&aacute;m Ä‘á»‹nh máº«u má»±c kh&ocirc; x&eacute; do Chá»‹ cá»¥c Quáº£n l&yacute; thá»‹  trÆ°á»ng Háº£i Ph&ograve;ng thu giá»¯ cho tháº¥y, Ä‘&acirc;y kh&ocirc;ng pháº£i l&agrave; má»±c kh&ocirc; tá»± nhi&ecirc;n,  h&agrave;m lÆ°á»£ng xenlulo vÆ°á»£t qu&aacute; chá»‰ ti&ecirc;u cho ph&eacute;p.</p>\r\n&gt;', '2010-11-01 14:04:01');
+INSERT INTO `todaytopic` VALUES (76, '80% hiá»‡u quáº£ cÃ´ng viá»‡c chá»‰ do khoáº£ng 20 "Ä‘áº¡i bÃ ng', '<p>80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i. Viá»‡c sÄƒn ngÆ°á»i t&agrave;i hiá»‡n nay bá»©c thiáº¿t hÆ¡n bao giá» háº¿t buá»™c c&aacute;c &ocirc;ng chá»§ pháº£i chá»§ Ä‘á»™ng lá»¥c lá»i má»i ng&oacute;c ng&aacute;ch Ä‘á»ƒ ph&aacute;t hiá»‡n, thay v&igrave; ngá»“i má»™t chá»— chá» há» Ä‘áº¿n</p>\r\n<p>80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i. Viá»‡c sÄƒn ngÆ°á»i t&agrave;i hiá»‡n nay bá»©c thiáº¿t hÆ¡n bao giá» háº¿t buá»™c c&aacute;c &ocirc;ng chá»§ pháº£i chá»§ Ä‘á»™ng lá»¥c lá»i má»i ng&oacute;c ng&aacute;ch Ä‘á»ƒ ph&aacute;t hiá»‡n, thay v&igrave; ngá»“i má»™t chá»— chá» há» Ä‘áº¿n</p>\r\n<p>&nbsp;</p>', 'enable', '', 'Lighthouse.jpg', 'Penguins.jpg', 14, '<p>80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i. Viá»‡c sÄƒn ngÆ°á»i t&agrave;i hiá»‡n nay bá»©c thiáº¿t hÆ¡n bao giá» háº¿t buá»™c c&aacute;c &ocirc;ng chá»§ pháº£i chá»§ Ä‘á»™ng lá»¥c lá»i má»i ng&oacute;c ng&aacute;ch Ä‘á»ƒ ph&aacute;t hiá»‡n, thay v&igrave; ngá»“i má»™t chá»— chá» há» Ä‘áº¿n</p>', '2010-11-01 14:34:22');
+INSERT INTO `todaytopic` VALUES (73, 'Khu vá»±c thá»­ nghiá»‡m háº¡t nhÃ¢n nhÃ¬n tá»« Google Maps  ', '<p>H&atilde;ng dá»‹ch vá»¥ Internet Má»¹ Ä‘Äƒng áº£nh vá» Yucca Flat, ná»•i tiáº¿ng l&agrave; &quot;Ä‘iá»ƒm há»©ng chá»‹u nhiá»u vá»¥ ná»• háº¡t nh&acirc;n nháº¥t tr&ecirc;n bá» máº·t tr&aacute;i Ä‘áº¥t&quot;.</p>\r\n<p>Microsoft Security Essentials, pháº§n má»m chá»‘ng virus cá»§a Microsoft, báº¥t  ngá» vÆ°á»£t qua má»™t loáº¡t á»©ng dá»¥ng báº£o máº­t kh&aacute;c cá»§a c&aacute;c c&ocirc;ng ty ná»•i tiáº¿ng  nhÆ° Symantec, Kaspersky, Eset v&agrave; AVG.</p>', 'enable', '', '', '', 15, '<p>H&atilde;ng dá»‹ch vá»¥ Internet Má»¹ Ä‘Äƒng áº£nh vá» Yucca Flat, ná»•i tiáº¿ng l&agrave; &quot;Ä‘iá»ƒm há»©ng chá»‹u nhiá»u vá»¥ ná»• háº¡t nh&acirc;n nháº¥t tr&ecirc;n bá» máº·t tr&aacute;i Ä‘áº¥t&quot;.</p>', '2010-11-01 14:05:12');
+INSERT INTO `todaytopic` VALUES (74, 'Apple láº¡i gáº·p ráº¯c rá»‘i vÃ¬ tÃªn gá»i iPad ', '<p>Má»™t c&ocirc;ng ty nh&agrave; nÆ°á»›c cá»§a Ä&agrave;i Loan tuy&ecirc;n bá»‘ Ä‘&atilde; Ä‘Äƒng k&yacute; thÆ°Æ¡ng hiá»‡u I-Pad  tá»« 10 nÄƒm trÆ°á»›c v&agrave; dá»± Ä‘á»‹nh kiá»‡n Apple v&igrave; &quot;thiá»‡t háº¡i m&agrave; h&atilde;ng n&agrave;y g&acirc;y ra á»Ÿ  Trung Quá»‘c v&agrave; Má»¹&quot;.Má»™t c&ocirc;ng ty nh&agrave; nÆ°á»›c cá»§a Ä&agrave;i Loan tuy&ecirc;n bá»‘ Ä‘&atilde; Ä‘Äƒng k&yacute; thÆ°Æ¡ng hiá»‡u I-Pad  tá»« 10 nÄƒm trÆ°á»›c v&agrave; dá»± Ä‘á»‹nh kiá»‡n Apple v&igrave; &quot;thiá»‡t háº¡i m&agrave; h&atilde;ng n&agrave;y g&acirc;y ra á»Ÿ  Trung Quá»‘c v&agrave; Má»¹&quot;.Má»™t c&ocirc;ng ty nh&agrave; nÆ°á»›c cá»§a Ä&agrave;i Loan tuy&ecirc;n bá»‘ Ä‘&atilde; Ä‘Äƒng k&yacute; thÆ°Æ¡ng hiá»‡u I-Pad  tá»« 10 nÄƒm trÆ°á»›c v&agrave; dá»± Ä‘á»‹nh kiá»‡n Apple v&igrave; &quot;thiá»‡t háº¡i m&agrave; h&atilde;ng n&agrave;y g&acirc;y ra á»Ÿ  Trung Quá»‘c v&agrave; Má»¹&quot;.</p>', 'enable', '', 'Lighthouse.jpg', 'Koala.jpg', 15, '<p>Má»™t c&ocirc;ng ty nh&agrave; nÆ°á»›c cá»§a Ä&agrave;i Loan tuy&ecirc;n bá»‘ Ä‘&atilde; Ä‘Äƒng k&yacute; thÆ°Æ¡ng hiá»‡u I-Pad  tá»« 10 nÄƒm trÆ°á»›c v&agrave; dá»± Ä‘á»‹nh kiá»‡n Apple v&igrave; &quot;thiá»‡t háº¡i m&agrave; h&atilde;ng n&agrave;y g&acirc;y ra á»Ÿ  Trung Quá»‘c v&agrave; Má»¹&quot;.</p>', '2010-11-01 14:05:53');
+INSERT INTO `todaytopic` VALUES (75, 'Thá»i lÆ°á»£ng pin Ä‘iá»‡n thoáº¡i sáº½ tÄƒng lÃªn 10 láº§n ', '<p>dang hoang thien was here</p>', 'enable', '', 'Lighthouse.jpg', 'Jellyfish.jpg', 15, 'Sáº£n xuáº¥t pin gi&uacute;p smartphone hoáº¡t Ä‘á»™ng li&ecirc;n tá»¥c trong thá»i gian d&agrave;i hÆ¡n  5-10 láº§n hiá»‡n nay l&agrave; má»¥c ti&ecirc;u cá»§a má»™t dá»± &aacute;n lá»›n m&agrave; IBM, Infineon c&ugrave;ng  má»™t loáº¡t trÆ°á»ng Ä‘áº¡i há»c á»Ÿ ch&acirc;u &Acirc;u Ä‘ang triá»ƒn khai\r\n', '2010-11-01 14:06:34');
+INSERT INTO `todaytopic` VALUES (77, '80% hiá»‡u quáº£ cÃ´ng viá»‡c chá»‰ do khoáº£ng 20 "Ä‘áº¡i bÃ ng" mang láº¡i', '<p>80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i</p>', 'enable', '', 'Lighthouse.jpg', 'Hydrangeas.jpg', 15, '80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i 80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang láº¡ i80% hiá»‡u quáº£ c&ocirc;ng viá»‡c chá»‰ do khoáº£ng 20 &quot;Ä‘áº¡i b&agrave;ng&quot; mang', '2010-11-01 14:35:47');
+INSERT INTO `todaytopic` VALUES (78, 'Thá»§ tÆ°á»›ng vá»«a giao Bá»™ NÃ´ng nghiá»‡p vÃ  PhÃ¡t triá»ƒn nÃ´ng thÃ´n', '<p>Thá»§ tÆ°á»›ng vá»«a giao Bá»™ N&ocirc;ng nghiá»‡p v&agrave; Ph&aacute;t triá»ƒn n&ocirc;ng th&ocirc;n, Bá»™ C&ocirc;ng ThÆ°Æ¡ng chá»‰ Ä‘áº¡o c&aacute;c chá»§ Ä‘áº§u tÆ° r&agrave; so&aacute;t, Ä‘&aacute;nh gi&aacute; láº¡i thiáº¿t káº¿ c&aacute;c há»“ chá»©a thá»§y lá»£i, thá»§y Ä‘iá»‡n. Viá»‡c sÄƒn ngÆ°á»i t&agrave;i hiá»‡n nay bá»©c thiáº¿t hÆ¡n bao giá» háº¿t buá»™c c&aacute;c &ocirc;ng chá»§ pháº£i chá»§ Ä‘á»™ng lá»¥c lá»i má»i ng&oacute;c ng&aacute;ch Ä‘á»ƒ ph&aacute;t hiá»‡n, thay v&igrave; ngá»“i má»™t chá»— chá» há» Ä‘áº¿n</p>', 'enable', '', 'Lighthouse.jpg', 'Hydrangeas.jpg', 15, 'Thá»§ tÆ°á»›ng vá»«a giao Bá»™ NÃ´ng nghiá»‡p vÃ  PhÃ¡t triá»ƒn nÃ´ng thÃ´n, Bá»™ CÃ´ng  ThÆ°Æ¡ng chá»‰ Ä‘áº¡o cÃ¡c chá»§ Ä‘áº§u tÆ° rÃ  soÃ¡t, Ä‘Ã¡nh giÃ¡ láº¡i', '2010-11-01 14:36:58');
+INSERT INTO `todaytopic` VALUES (80, 'Tottenham Ä‘áº¡i tháº¯ng ÄKVÄ Inter ', '<p class="Normal">Chiáº¿n tháº¯ng 3-1 gi&uacute;p Tottenham tráº£ cáº£ vá»‘n láº«n l&atilde;i cho  m&oacute;n ná»£ há» vay khi thua 3-4 tr&ecirc;n s&acirc;n cá»§a Inter á»Ÿ lÆ°á»£t Ä‘i c&aacute;ch Ä‘&acirc;y hai  tuáº§n. Nhá» káº¿t quáº£ n&agrave;y, Ä‘á»™i b&oacute;ng Anh kh&ocirc;ng chá»‰ san báº±ng khoáº£ng c&aacute;ch vá»  Ä‘iá»ƒm sá»‘ vá»›i c&aacute;c nh&agrave; ÄKVÄ (c&ugrave;ng 7 Ä‘iá»ƒm), m&agrave; c&ograve;n vÆ°Æ¡n l&ecirc;n dáº«n Ä‘áº§u báº£ng A  nhá» nhá»‰nh hÆ¡n á»Ÿ hiá»‡u sá»‘ b&agrave;n tháº¯ng (+4 so vá»›i +3).</p>\r\n<table width="1" cellspacing="0" cellpadding="1" border="0" align="center">\r\n    <tbody>\r\n        <tr>\r\n            <td><img height="359" width="490" alt="Inter cháº³ng nhá»¯ng kh&ocirc;ng ho&agrave;n th&agrave;nh má»¥c ti&ecirc;u chiáº¿n tháº¯ng Ä‘á»ƒ sá»›m Ä‘i tiáº¿p, m&agrave; c&ograve;n quá»³ gá»‘i má»™t c&aacute;ch dá»… d&agrave;ng trÆ°á»›c Tottenham." src="http://vnexpress.net/Files/Subject/3B/A2/26/F9/Tottenham-inter.jpg" /></td>\r\n        </tr>\r\n        <tr>\r\n            <td class="Image">Inter cháº³ng nhá»¯ng kh&ocirc;ng ho&agrave;n th&agrave;nh má»¥c ti&ecirc;u chiáº¿n tháº¯ng Ä‘á»ƒ sá»›m Ä‘i tiáº¿p, m&agrave; c&ograve;n thua má»™t c&aacute;ch dá»… d&agrave;ng trÆ°á»›c Tottenham.</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p class="Normal">á»ž tráº­n lÆ°á»£t Ä‘i táº¡i Meazza, Tottenham Ä‘&atilde; bá»™c lá»™ r&otilde; sá»±  non ná»›t á»Ÿ Champions League khi máº¥t ngÆ°á»i v&agrave; bá»‹ Inter dáº«n tá»›i 4-0 trÆ°á»›c  giá» giáº£i lao. NhÆ°ng c&uacute; hattrick cá»§a Gareth Bale á»Ÿ hiá»‡p hai tráº­n Ä‘áº¥u áº¥y  c&oacute; láº½ Ä‘&atilde; táº¡o n&ecirc;n má»™t bÆ°á»›c ngoáº·t vá» t&acirc;m l&yacute; cho CLB th&agrave;nh London Ä‘á»ƒ há» tá»±  tin hÆ¡n khi t&aacute;i Ä‘áº¥u h&ocirc;m qua. Sá»± trá»Ÿ láº¡i ká»‹p thá»i cá»§a c&aacute;c trá»¥ cá»™t nhÆ°  trung vá»‡ Kaboul, tiá»n vá»‡ thá»§ Huddlestrone v&agrave; há»™ c&ocirc;ng Van der Vaart gi&uacute;p  Tottenham cáº£i thiá»‡n nhiá»u vá» cháº¥t so vá»›i tráº­n lÆ°á»£t Ä‘i. Kaboul v&agrave;  Huddlestrone Ä‘em láº¡i sá»± cá»©ng c&aacute;p, lá»³ lá»£m cáº§n thiáº¿t cho há»‡ thá»‘ng ph&ograve;ng  ngá»±, c&ograve;n Van der Vaart th&igrave; g&oacute;p c&ocirc;ng lá»›n vá»›i b&agrave;n má»Ÿ tá»· sá»‘, d&ugrave; anh chá»‰ Ä‘á»§  sá»©c Ä‘&aacute; má»™t hiá»‡p. Trong khi Ä‘&oacute;, Bale tiáº¿p tá»¥c ch&oacute;i s&aacute;ng khi c&agrave;y n&aacute;t h&agrave;nh  lang pháº£i cá»§a Inter v&agrave; c&oacute; hai pha dá»n cá»— Ä‘á»ƒ Crouch rá»“i Pavlyuchenko ghi  c&aacute;c b&agrave;n c&ograve;n láº¡i.</p>', 'enable', '', 'Hydrangeas.jpg', 'Hydrangeas.jpg', 14, 'Etoâ€™o tiáº¿p tá»¥c ghi bÃ n á»Ÿ lÆ°á»£t tráº­n thá»© tÆ° vÃ²ng báº£ng Champions League tá»‘i thá»© ba, nhÆ°ng khÃ´ng Ä‘á»§ giÃºp Inter trÃ¡nh khá»i tháº¥t báº¡i báº½ bÃ ng 1-3 á»Ÿ White Hart Lane, nÆ¡i há» thua kÃ©m hoÃ n toÃ n chá»§ nhÃ  Tottenham vá» tÃ­nh hiá»‡u quáº£', '2010-11-03 13:14:46');
+INSERT INTO `todaytopic` VALUES (81, 'Uá»NG VIÃŠN Sáº®T - AXIT FOLIC NHÆ¯ THáº¾ NÃ€O? ', '<p>Sáº¯t v&agrave; axit folic l&agrave; hai vi cháº¥t cá»±c ká»³ quan trá»ng Ä‘á»‘i vá»›i phá»¥ ná»¯  tuá»•i sinh Ä‘áº» v&agrave; cho Ä‘á»©a con tÆ°Æ¡ng lai. Sau Ä‘&acirc;y l&agrave; giáº£i Ä‘&aacute;p cho má»™t sá»‘  tháº¯c máº¯c thÆ°á»ng gáº·p khi chá»‹ em sá»­ dá»¥ng vi&ecirc;n thuá»‘c n&agrave;y:</p>\r\n<p class="MsoNormal"><em><span style="font-size: 10pt; font-family: Arial;">- Hiá»‡n sá»©c khá»e cá»§a t&ocirc;i ráº¥t tá»‘t, kh&ocirc;ng c&oacute; biá»ƒu hiá»‡n thiáº¿u m&aacute;u, váº­y t&ocirc;i c&oacute; cáº§n bá»• sung vi&ecirc;n sáº¯t?</span></em></p>\r\n<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">Thiáº¿u  m&aacute;u, thiáº¿u sáº¯t l&agrave; qu&aacute; tr&igrave;nh diá»…n ra tá»« tá»«, thÆ°á»ng ban Ä‘áº§u kh&ocirc;ng c&oacute;  triá»‡u chá»©ng r&otilde; rá»‡t. Khi lÆ°á»£ng sáº¯t dá»± trá»¯ trong cÆ¡ thá»ƒ cáº¡n kiá»‡t th&igrave; biá»ƒu  hiá»‡n b&ecirc;n ngo&agrave;i má»›i xuáº¥t hiá»‡n nhÆ° má»‡t má»i, ch&oacute;ng máº·t, hoa máº¯t, da xanh  xao, m&oacute;ng tay m&oacute;ng ch&acirc;n sáº§n, máº¥t b&oacute;ng... </span></p>\r\n<p class="MsoNormal"><span style="font-size: 10pt; font-family: Arial;">Phá»¥  ná»¯ c&oacute; nguy cÆ¡ thiáº¿u sáº¯t lá»›n do do nhu cáº§u kh&aacute; cao (15 mg má»—i ng&agrave;y,  trong khi Ä‘&oacute; cháº¿ Ä‘á»™ Äƒn thÆ°á»ng chá»‰ cung cáº¥p khoáº£ng 10 mg). Do Ä‘&oacute;, Ä‘á»ƒ báº£o  Ä‘áº£m duy tr&igrave; sá»©c khá»e, báº¡n n&ecirc;n uá»‘ng vi&ecirc;n sáº¯t má»—i tuáº§n má»™t láº§n b&ecirc;n cáº¡nh  cháº¿ Ä‘á»™ dinh dÆ°á»¡ng c&acirc;n Ä‘á»‘i.</span></p>', 'enable', '', 'Desert.jpg', 'Koala.jpg', 22, 'Sáº¯t vÃ  axit folic lÃ  hai vi cháº¥t cá»±c ká»³ quan trá»ng Ä‘á»‘i vá»›i phá»¥ ná»¯ tuá»•i sinh Ä‘áº» vÃ  cho Ä‘á»©a con tÆ°Æ¡ng lai. Sau Ä‘Ã¢y lÃ  giáº£i Ä‘Ã¡p cho má»™t sá»‘ tháº¯c máº¯c thÆ°á»ng gáº·p khi chá»‹ em sá»­ dá»¥ng viÃªn thuá»‘c nÃ y:', '2010-11-03 13:35:11');
+INSERT INTO `todaytopic` VALUES (82, 'Äá»™t nháº­p vÃ o tiá»‡m sá»­a xe Ã´ tÃ´', '<p style="text-align: justify;">10h s&aacute;ng, kho h&agrave;ng náº±m trÆ°á»›c tiá»‡m sá»­a xe  n&ecirc;n ráº¥t kh&oacute; Ä‘á»ƒ ch&uacute;ng t&ocirc;i&nbsp;tiáº¿p cáº­n. Gáº§n 1h chiá»u náº¯ng, tiá»‡m sá»¯a chá»¯a xe &ocirc;  t&ocirc; váº¯ng hoe. Kho h&agrave;ng trÆ°á»›c tiá»‡m cá»­a sáº¯t h&eacute; má»Ÿ Ä‘á»§ lá»t ngÆ°á»i chui v&agrave;o.  Qua &aacute;nh s&aacute;ng khe cá»­a cÅ©ng Ä‘á»§ tháº¥y Ä‘á»‘ng quáº§n &aacute;o náº±m ngá»•n ngang trong Ä‘&oacute;.</p>\r\n<p style="text-align: justify;">Má»›i nh&igrave;n qua th&igrave; Ä‘&acirc;y chá»‰ l&agrave; Ä‘á»‘ng quáº§n &aacute;o  cÅ© ráº¥t b&igrave;nh thÆ°á»ng. Lao v&agrave;o bá»›i tung n&oacute; l&ecirc;n má»›i tháº¥y nhá»¯ng chiáº¿c há»™p,  c&aacute;i b&igrave; Ä‘á»±ng quáº§n &aacute;o cÅ© náº±m áº©n náº¥p ph&iacute;a dÆ°á»›i. &ldquo;Bá»‹ bá»›i tung l&agrave; v&igrave; má»™t sá»‘  cá»­u váº¡n tháº¥y tiáº¿c qu&aacute; n&ecirc;n xin v&agrave;o bá»›i tung Ä‘á»ƒ t&igrave;m Ä‘á»“ l&agrave;nh. Chá»© má»›i chá»Ÿ  vá» c&ograve;n nguy&ecirc;n Ä‘ai nguy&ecirc;n kiá»‡n láº¯m&rdquo;, ngÆ°á»i dáº«n Ä‘Æ°á»ng giáº£i th&iacute;ch.</p>\r\n<p style="text-align: justify;">Quáº£ tháº­t khi PV trá»±c tiáº¿p lao v&agrave;o Ä‘á»‘ng  há»—n Ä‘á»™n quáº§n &aacute;o th&igrave; tháº¥y xuáº¥t hiá»‡n nhá»¯ng g&oacute;i nilon nhá», d&aacute;n cáº©n tháº­n,  b&ecirc;n trong l&agrave; nhiá»u loáº¡i quáº§n &aacute;o Ä‘&atilde; cÅ© nhÆ°ng c&oacute; thá»ƒ d&ugrave;ng Ä‘Æ°á»£c. Nhá»¯ng g&oacute;i  nilon n&agrave;y Ä‘Æ°á»£c xáº¿p cáº©n tháº­n trong nhá»¯ng chiáº¿c b&igrave; loáº¡i lá»›n.</p>\r\n<p style="text-align: center;"><img src="http://img21.24h.com.vn/upload/4-2010/images/2010-11-03/1288765960-hang-cuu-tro1.jpg" alt="H&agrave;ng cá»©u trá»£ biáº¿n th&agrave;nh&hellip; giáº» lau!, Tin tá»©c trong ng&agrave;y, hang cuu tro, quan ao, lu mien Trung, tiem sua xe, gie lau, xi nghiep o to, tai xe, ga Vinh" class="news-image" /></p>\r\n<p style="text-align: center;"><font style="color: rgb(0, 0, 255);"><em>Trong kho c&ograve;n nhiá»u bao quáº§n &aacute;o cÅ© &ldquo;nguy&ecirc;n Ä‘ai nguy&ecirc;n kiá»‡n&rdquo;</em></font></p>\r\n<p style="text-align: center;"><font style="color: rgb(0, 0, 255);"><em><img src="http://img21.24h.com.vn/upload/4-2010/images/2010-11-03/1288765960-hang-cuu-tro2.jpg" alt="H&agrave;ng cá»©u trá»£ biáº¿n th&agrave;nh&hellip; giáº» lau!, Tin tá»©c trong ng&agrave;y, hang cuu tro, quan ao, lu mien Trung, tiem sua xe, gie lau, xi nghiep o to, tai xe, ga Vinh" class="news-image" /></em></font></p>\r\n<p style="text-align: center;"><font style="color: rgb(0, 0, 255);"><em>Bao b&igrave; c&oacute; ghi Ä‘á»‹a chá»‰ nÆ¡i gá»­i c&ograve;n láº¡i hiáº¿m hoi trong kho</em></font></p>\r\n<p style="text-align: justify;">Pháº§n lá»›n nhá»¯ng chiáº¿c b&igrave; n&agrave;y kh&ocirc;ng ghi  d&ograve;ng chá»¯ n&agrave;o n&ecirc;n ráº¥t kh&oacute; x&aacute;c Ä‘á»‹nh Ä‘Æ°á»£c nguá»“n gá»‘c. Sau gáº§n 15 ph&uacute;t t&igrave;m  kiáº¿m cuá»‘i c&ugrave;ng PV má»›i ph&aacute;t hiá»‡n Ä‘Æ°á»£c má»™t chiáº¿c b&igrave; náº±m dÆ°á»›i c&ugrave;ng cá»§a Ä‘á»‘ng  quáº§n &aacute;o.</p>\r\n<p style="text-align: justify;">B&igrave; m&agrave;u tráº¯ng, ph&iacute;a ngo&agrave;i c&oacute; ghi r&otilde; chá»¯  m&agrave;u xanh. Ná»™i dung cá»§a d&ograve;ng chá»¯ chá»‰ váº»n váº¹n: Há»™i chá»¯ tháº­p Ä‘á» huyá»‡n Thanh  Tr&igrave;-TP H&agrave; Ná»™i. Ph&iacute;a dÆ°á»›i c&ograve;n c&oacute; biá»ƒu tÆ°á»£ng chá»¯ tháº­p cá»§a Há»™i v&agrave; ghi  th&aacute;ng 10/2010.</p>\r\n<p style="text-align: justify;"><strong>&quot;Táº¥m l&ograve;ng&quot; cá»§a nh&agrave; háº£o t&acirc;m Ä‘á»ƒ... lau &ocirc; t&ocirc;, lau m&aacute;y!</strong></p>\r\n<p style="text-align: justify;">L&acirc;n la á»Ÿ chá»£ ga Vinh, nhá»¯ng tiá»ƒu thÆ°Æ¡ng  nÆ¡i Ä‘&acirc;y háº¿t sá»©c bá»©c x&uacute;c cho ráº±ng h&agrave;ng cá»©u trá»£ Ä‘&atilde; bá»‹ b&aacute;n hoáº·c cho láº¡i l&agrave;m  giáº» Ä‘á»ƒ lau &ocirc; t&ocirc;, lau m&aacute;y.</p>', 'enable', '', 'Hydrangeas.jpg', 'Lighthouse.jpg', 23, 'Cá»•ng Ga Vinh nÃ¡o nhiá»‡t. KhÃ¡ch Ä‘i tÃ u xe, káº» buÃ´n bÃ¡n nhá»™n nhá»‹p. Äá»‹a Ä‘iá»ƒm mÃ  ngÆ°á»i Ä‘Æ°a tin thÃ´ng bÃ¡o náº±m á»Ÿ trÃªn Ä‘Æ°á»ng TrÆ°á»ng Chinh (PhÆ°á»ng LÃª Lá»£i, TP Vinh) - CÃ¡ch ga Vinh khÃ´ng xa. â€œNÆ¡i chá»©a quáº§n Ã¡o cá»©u trá»£ Ä‘Ã£ bá»‹ xá»›i tung háº¿t rá»“i. Há» mua vá» cáº£ xe quáº§n Ã¡o Ä‘á»ƒ lau Ã´ tÃ´ Ä‘áº¥y. NhÆ°ng tiáº¿c cá»§a nÃªn nhiá»u ngÆ°á»i Ä‘Ã£ chá»n láº¥y cÃ¡i má»›i Ä‘Ã£ dÃ¹ng háº¿tâ€, ngÆ°á»i dÃ¢n pháº£n Ã¡nh.', '2010-11-03 15:16:50');
+INSERT INTO `todaytopic` VALUES (83, 'Chá»§ nhÃ¢n hÃ ng cá»©u trá»£ lÃ  ai?', '<p style="text-align: justify;">Táº¡i ph&ograve;ng H&oacute;a váº­n (Ga Vinh), chá»‹  B&ugrave;i Thá»‹ HÆ°Æ¡ng - ThÆ° k&yacute; h&oacute;a váº­n kháº³ng Ä‘á»‹nh Ä‘&uacute;ng l&agrave; ng&agrave;y 27/10 c&oacute; h&agrave;ng cá»©u  trá»£ tá»« H&agrave; Ná»™i gá»­i vá». V&agrave; ngay Ä‘&oacute; kh&ocirc;ng chá»‰ c&oacute; má»™t toa m&agrave; l&agrave; 3 toa Ä‘Æ°á»£c  gá»­i vá» tá»« ga H&agrave; Ná»™i. Trong Ä‘&oacute; Ä‘Æ¡n vá»‹ nháº­n l&agrave; Há»™i chá»¯ tháº­p Ä‘á» tá»‰nh Nghá»‡  An (2 toa k&yacute; hiá»‡u 231804 v&agrave; 231875) v&agrave; H&agrave; TÄ©nh (1 toa 231715).</p>\r\n<p style="text-align: justify;">Váº­y Ä‘Æ¡n vá»‹ n&agrave;o l&agrave; &ldquo;chá»§ nh&acirc;n&rdquo; trá»±c tiáº¿p  tuá»“n h&agrave;ng cá»©u trá»£ quáº§n &aacute;o v&agrave;o tiá»‡m sá»­a chá»¯a &ocirc; t&ocirc;. Biáº¿n &quot;táº¥m l&ograve;ng&quot; cá»§a  c&aacute;c nh&agrave; háº£o t&acirc;m th&agrave;nh&hellip; giáº» lau &ocirc; t&ocirc;, xe m&aacute;y?!</p>\r\n<p style="text-align: justify;">&nbsp;</p>\r\n<table width="500" cellspacing="1" cellpadding="1" border="0" align="center">\r\n    <tbody bgcolor="#def1c8">\r\n        <tr>\r\n            <td>\r\n            <p style="text-align: justify;"><strong>H&agrave;ng cá»©u trá»£ c&ograve;n nguy&ecirc;n káº¹p ch&igrave;!</strong></p>\r\n            <p style="text-align: justify;">Ph&ograve;ng H&oacute;a váº­n - Ga Vinh kháº³ng Ä‘á»‹nh h&agrave;ng cá»©u trá»£ bá»‹ cho hoáº·c b&aacute;n kh&ocirc;ng thá»ƒ do Ä‘Æ¡n vá»‹ n&agrave;y l&agrave;m.</p>\r\n            <p style="text-align: justify;">Theo quy tr&igrave;nh th&igrave; khi nháº­n  h&agrave;ng, ga Vinh sáº½ gá»­i váº­n Ä‘Æ¡n Ä‘áº¿n nÆ¡i Ä‘Æ°á»£c nháº­n. Sau Ä‘&oacute; Ä‘áº¡i diá»‡n Ä‘Æ¡n vá»‹  n&agrave;y Ä‘áº¿n sáº½ nháº­n giao li&ecirc;n 4. Sau Ä‘&oacute; ra b&atilde;i dá»¡ h&agrave;ng Ä‘á»ƒ kiá»ƒm tra k&yacute; hiá»‡u  káº¹p ch&igrave;. Náº¿u káº¹p ch&igrave; Ä‘&atilde; bá»‹ ph&aacute; hoáº·c kh&ocirc;ng Ä‘&uacute;ng th&igrave; ga Vinh sáº½ láº­p bi&ecirc;n  báº£n. C&ograve;n náº¿u káº¹p ch&igrave; nguy&ecirc;n váº¹n th&igrave; tiáº¿n h&agrave;nh giao toa. Trong trÆ°á»ng há»£p  h&agrave;ng cá»©u trá»£ Ä‘Æ°á»£c bá»‘c dá»¡ s&aacute;ng ng&agrave;y 27/10 th&igrave; ho&agrave;n to&agrave;n do tr&aacute;ch nhiá»‡m  v&agrave; to&agrave;n quyá»n cá»§a Há»™i chá»¯ tháº­p Ä‘á» tá»‰nh Nghá»‡ An.</p>\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<div class="baiviet-tags"><span class="tags-title">TAGS:</span> hang cuu tro, quan ao, lu mien Trung, tiem sua xe, gie lau, xi nghiep o to, tai xe, ga Vinh</div>', 'enable', '', 'Koala.jpg', 'Desert.jpg', 24, 'Háº§u háº¿t ngÆ°á»i dÃ¢n xung quanh chá»£ ga Vinh Ä‘á»u biáº¿t hÃ ng cá»©u trá»£ lÃ  quáº§n Ã¡o bá»‹ â€œbÃ´i nhá»â€ má»™t cÃ¡ch rÃµ rÃ ng. Tuy nhiÃªn, há» mÆ¡ há»“ vá» viá»‡c hÃ ng nÃ y bá»‹ bÃ¡n hay cho. VÃ  ai lÃ  ngÆ°á»i cho: ga Vinh hay má»™t ai khÃ¡c? NhÆ°ng thÃ´ng tin cháº¯c cháº¯n lÃ  viá»‡c lÃ m â€œÄ‘á»™ng trá»iâ€ trÃªn Ä‘Ã£ diá»…n ra tá»« buá»•i sÃ¡ng Ä‘áº¿n trÆ°á»›c 14h ngÃ y 27/10.', '2010-11-03 15:17:43');
+INSERT INTO `todaytopic` VALUES (84, 'Náº¡p láº¡i trang nÃ y lÃ m cÃ¡ch nÃ o Ä‘á»ƒ láº¥y giÃ¡ trá»‹ of check box? ', '<p>Äá»ƒ láº¥y gi&aacute; trá»‹ tá»« checkbox n&agrave;y, báº¡n chá»‰ viá»‡c : sá»­ dá»¥ng $_POST[''visible''] l&agrave; xong.<br />\r\n<br />\r\nC&ograve;n trong database, báº¡n n&ecirc;n x&acirc;y dá»±ng field n&agrave;y c&oacute; 1 k&yacute; tá»± (CHAR(1)) v&agrave;  máº·c Ä‘á»‹nh l&agrave; 1. Äá»ƒ máº·c Ä‘á»‹nh l&agrave; há» Ä‘á»u hiá»‡n nick. Khi n&agrave;o v&agrave;o trang edit  sá»­a láº¡i th&igrave; sáº½ update giá»‘ng nhÆ° á»Ÿ tr&ecirc;n sau.</p>\r\n<p>Äá»ƒ láº¥y gi&aacute; trá»‹ tá»« checkbox n&agrave;y, báº¡n chá»‰ viá»‡c : sá»­ dá»¥ng $_POST[''visible''] l&agrave; xong.<br />\r\n<br />\r\nC&ograve;n trong database, báº¡n n&ecirc;n x&acirc;y dá»±ng field n&agrave;y c&oacute; 1 k&yacute; tá»± (CHAR(1)) v&agrave;  máº·c Ä‘á»‹nh l&agrave; 1. Äá»ƒ máº·c Ä‘á»‹nh l&agrave; há» Ä‘á»u hiá»‡n nick. Khi n&agrave;o v&agrave;o trang edit  sá»­a láº¡i th&igrave; sáº½ update giá»‘ng nhÆ° á»Ÿ tr&ecirc;n sau.</p>\r\n<p>Äá»ƒ láº¥y gi&aacute; trá»‹ tá»« checkbox n&agrave;y, báº¡n chá»‰ viá»‡c : sá»­ dá»¥ng $_POST[''visible''] l&agrave; xong.<br />\r\n<br />\r\nC&ograve;n trong database, báº¡n n&ecirc;n x&acirc;y dá»±ng field n&agrave;y c&oacute; 1 k&yacute; tá»± (CHAR(1)) v&agrave;  máº·c Ä‘á»‹nh l&agrave; 1. Äá»ƒ máº·c Ä‘á»‹nh l&agrave; há» Ä‘á»u hiá»‡n nick. Khi n&agrave;o v&agrave;o trang edit  sá»­a láº¡i th&igrave; sáº½ update giá»‘ng nhÆ° á»Ÿ tr&ecirc;n sau.</p>', 'enable', '', 'Desert.jpg', 'Koala.jpg', 22, 'vÃ­ dá»¥ nhÆ° lÃ  trong CSDL, minh co field visible, náº¿u =1 thÃ¬ hiá»‡n, =0 thi áº©n,\r\ntrÃªn form, minh co checkbox Ä‘Ã³, náº¿u check vÃ o thi visible=1, ko check thi visible=0, vÃ  lÃ m cÃ¡ch nÃ o Ä‘á»ƒ láº¥y giÃ¡ trá»‹ Ä‘Ã³, Ä‘á»ƒ Ä‘Æ°a vÃ o CSDL. ', '2010-11-04 15:12:49');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `todaytopic_comment`
+-- 
+
+DROP TABLE IF EXISTS `todaytopic_comment`;
+CREATE TABLE IF NOT EXISTS `todaytopic_comment` (
+  `comment_id` int(11) NOT NULL auto_increment,
+  `comment_content` text character set utf8,
+  `comment_username` text character set utf8,
+  `comment_datetime` text character set utf8,
+  `todaytopic_id` int(11) default NULL,
+  `status` text collate utf8_unicode_ci,
+  `member_id` int(11) default NULL,
+  `comment_email` text collate utf8_unicode_ci,
+  `comment_title` text collate utf8_unicode_ci,
+  PRIMARY KEY  (`comment_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+
+-- 
+-- Dumping data for table `todaytopic_comment`
+-- 
+
+INSERT INTO `todaytopic_comment` VALUES (0, '', 'Mr THIEN', '', 1, '', NULL, NULL, NULL);
+INSERT INTO `todaytopic_comment` VALUES (2, 'Phương Thanh tấu hài cùng Hoài Linh', 'tran van dang', '02/02/1988', 1, 'enable', NULL, NULL, NULL);
+INSERT INTO `todaytopic_comment` VALUES (3, 'hay nhung khong hop ly', 'HTINMOTION', '2010-11-02 04:36:46', 2, 'enable', NULL, NULL, NULL);
+INSERT INTO `todaytopic_comment` VALUES (6, 'hay lÄƒÌm hay lÄƒÌm hay lÄƒÌm hay lÄƒÌm hay lÄƒÌm', 'lamgiahuy', '2010-11-02 04:36:46', 78, 'enable', 0, 'danghoangthien@gmail.com', 'hay vui bÃ´Ì‰ iÌch');
+INSERT INTO `todaytopic_comment` VALUES (7, 'hay lÄƒÌm hay lÄƒÌm hay lÄƒÌm', 'Lam chan huy', '2010-11-02 04:40:32', 78, 'enable', 0, 'danghoangthien@gmail.com', 'hay vui bÃ´Ì‰ iÌch');
+INSERT INTO `todaytopic_comment` VALUES (8, 'hay lÄƒÌm', 'Ä‘ÄƒÌ£ng hoÌ€ang thiÃªn', '2010-11-02 06:09:33', 78, 'enable', 0, 'danghoangthien@gmail.com', 'hay vui bÃ´Ì‰ iÌch');
+INSERT INTO `todaytopic_comment` VALUES (9, 'tÃ´i nhÃ¢Ìn maÌ£nh rÄƒÌ€ng cÆ¡ hÃ´Ì£i trong liÌƒnh vÆ°Ì£c cÃ´ng nghÃªÌ£ thÃ´ng tin laÌ€ rÃ¢Ìt lÆ¡Ìn', 'lamgiaheo', '2010-11-03 11:20:12', 78, 'enable', 0, 'lamgiahuy@gmail.com', 'tÃ´i nhÃ¢Ìn maÌ£nh rÄƒÌ€ng');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `todaytopic_type`
+-- 
+
+DROP TABLE IF EXISTS `todaytopic_type`;
+CREATE TABLE IF NOT EXISTS `todaytopic_type` (
+  `todaytopic_type_id` int(11) NOT NULL auto_increment,
+  `todaytopic_type_title` text collate utf8_unicode_ci,
+  `status` text collate utf8_unicode_ci,
+  `navi_id` int(11) default NULL,
+  `parent_id` int(11) default NULL,
+  PRIMARY KEY  (`todaytopic_type_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=26 ;
+
+-- 
+-- Dumping data for table `todaytopic_type`
+-- 
+
+INSERT INTO `todaytopic_type` VALUES (15, 'Tháº£o luáº­n', 'enable', 35, 0);
+INSERT INTO `todaytopic_type` VALUES (14, 'Dinh dÆ°á»¡ng', 'enable', 32, 0);
+INSERT INTO `todaytopic_type` VALUES (21, 'Luyá»‡n táº­p', 'enable', 58, 0);
+INSERT INTO `todaytopic_type` VALUES (22, 'Giáº£m cÃ¢n', 'enable', 62, 0);
+INSERT INTO `todaytopic_type` VALUES (23, 'CoÌ duÌ£ng cuÌ£', 'enable', 0, 21);
+INSERT INTO `todaytopic_type` VALUES (24, 'KhÃ´ng duÌ£ng cuÌ£', 'enable', 0, 21);
+INSERT INTO `todaytopic_type` VALUES (25, 'SaÌ‰n phÃ¢Ì‰m', 'enable', 70, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `topictag`
+-- 
+
+DROP TABLE IF EXISTS `topictag`;
+CREATE TABLE IF NOT EXISTS `topictag` (
+  `todaytopictag_id` int(11) NOT NULL auto_increment,
+  `todaytopic_id` int(11) default NULL,
+  `tag_id` int(11) default NULL,
+  PRIMARY KEY  (`todaytopictag_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+-- 
+-- Dumping data for table `topictag`
+-- 
+
+INSERT INTO `topictag` VALUES (2, 84, 2);
+INSERT INTO `topictag` VALUES (3, 84, 3);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `urc_contest`
+-- 
+
+DROP TABLE IF EXISTS `urc_contest`;
+CREATE TABLE IF NOT EXISTS `urc_contest` (
+  `contest_id` bigint(20) NOT NULL auto_increment,
+  `member_id` int(11) NOT NULL,
+  `TLife_Id` int(11) NOT NULL,
+  `contest_title` varchar(255) NOT NULL,
+  `contest_fileup` varchar(255) NOT NULL,
+  `contest_filelink` varchar(255) NOT NULL,
+  `contest_ivideo` varchar(255) NOT NULL,
+  `contest_views` bigint(20) NOT NULL,
+  `contest_desc` text NOT NULL,
+  `contest_date` date NOT NULL,
+  `contest_active` tinyint(4) NOT NULL,
+  `contest_type` tinyint(4) NOT NULL,
+  PRIMARY KEY  (`contest_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+
+-- 
+-- Dumping data for table `urc_contest`
+-- 
+
+INSERT INTO `urc_contest` VALUES (2, 12, 1, 'demo', '12847464691600XMAS_1001.jpg', '', '', 13, 'mota anh', '2010-09-17', 1, 0);
+INSERT INTO `urc_contest` VALUES (3, 12, 3, 'hello', '12847464761600XMAS_2017.jpg', '', '', 124, 'tinh yeu', '2010-09-17', 1, 0);
+INSERT INTO `urc_contest` VALUES (4, 12, 1, 'Ảnh tham dự chương trình', '12847464881600XMAS_3002.jpg', '', '', 4, 'Ảnh tham dự chương trình C2', '2010-09-17', 1, 0);
+INSERT INTO `urc_contest` VALUES (5, 16, 2, 'demo', '1284746627daosantosa.jpg', '', '', 14, 'alooo oooo oooo  ooooo oooo ooooo ooo ooo', '2010-09-17', 1, 0);
+INSERT INTO `urc_contest` VALUES (6, 16, 1, 'Ảnh tham dự chương trình', '12847465001600XMAS_1020.jpg', '', '', 4, 'Ảnh tham dự chương trình', '2010-09-17', 1, 0);
+INSERT INTO `urc_contest` VALUES (8, 12, 2, 'demo video', '1284790417TVC.flv', '', '1284790581484609instant-iced-capuccino.jpg', 1004, 'video demo', '2010-09-17', 1, 1);
+INSERT INTO `urc_contest` VALUES (17, 12, 3, 'rew rewrr er ewr e', '1284749637Boy_Angel.jpg', 'http://localhost:9090/chiaseniemvui/uploads/contest/12847451022.jpg', '', 11, 'r ewr ewr ewr r ewr', '2010-09-18', 1, 0);
+INSERT INTO `urc_contest` VALUES (11, 12, 4, 'chia se niem vui', '1284746507caythongnoel.jpg', '', '', 8, 'chia se niem vui', '2010-09-23', 1, 0);
+INSERT INTO `urc_contest` VALUES (19, 16, 4, 'rerewr ewr ewr ewr', '1284745258328937How To Make Cafetiere Coffee.flv', '', '128479062378cactus.jpg', 106, 'r ewr r ewr ewr ewr ewr ew re rewrew', '2010-09-18', 1, 1);
+INSERT INTO `urc_contest` VALUES (20, 18, 3, 'ling nguyen', '128489119818.jpg', '', '', 3, 'ok gui bai ne', '2010-09-19', 1, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `urc_loaitin`
+-- 
+
+DROP TABLE IF EXISTS `urc_loaitin`;
+CREATE TABLE IF NOT EXISTS `urc_loaitin` (
+  `Id` int(11) NOT NULL auto_increment,
+  `LTin_Id` int(11) NOT NULL default '0',
+  `LTin_Ten` varchar(255) NOT NULL default '',
+  `LTin_Comment` tinyint(4) NOT NULL default '0',
+  `LTin_Group` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+-- 
+-- Dumping data for table `urc_loaitin`
+-- 
+
+INSERT INTO `urc_loaitin` VALUES (9, 1, 'Tin t&#7913;c', 0, 1);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `urc_member`
+-- 
+
+DROP TABLE IF EXISTS `urc_member`;
+CREATE TABLE IF NOT EXISTS `urc_member` (
+  `member_id` bigint(20) NOT NULL auto_increment,
+  `member_user` text NOT NULL,
+  `member_pass` text NOT NULL,
+  `member_email` text NOT NULL,
+  `member_rname` text NOT NULL,
+  `member_date` varchar(20) NOT NULL,
+  `member_add` text NOT NULL,
+  `member_phone` text NOT NULL,
+  `member_card` varchar(25) NOT NULL,
+  `member_win` tinyint(4) NOT NULL,
+  `member_admin` text NOT NULL,
+  `member_active` tinyint(4) NOT NULL,
+  PRIMARY KEY  (`member_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+
+-- 
+-- Dumping data for table `urc_member`
+-- 
+
+INSERT INTO `urc_member` VALUES (12, 'ropho', 'd41d8cd98f00b204e9800998ecf8427e', 'ropho164@yahoo.com', 'Dang Van Ro Pho', '04-16-1983', '453/59 KA Le Van Si', '0937406466', 'IT', 1, '', 1);
+INSERT INTO `urc_member` VALUES (17, 'testing', 'ae2b1fca515949e5d54fb22b8ed95575', 'ropho164@yahoo.com.canh', 'testing', '9-17-2010', 'LA', '0937406466', '1234567890', 0, '', 1);
+INSERT INTO `urc_member` VALUES (18, 'linhnguyen', 'e10adc3949ba59abbe56e057f20f883e', 'linh.nguyen@mediagurus.vn', 'Linh', '9-19-2010', 'HCM', '0937406466', '01010101010', 0, '', 1);
+INSERT INTO `urc_member` VALUES (19, 'vinhtruong', 'e10adc3949ba59abbe56e057f20f883e', 'vinh.truong@mediagurus.vn', 'truong the vinh', '9-19-2010', 'HCM', '0937406466', '09080709655', 0, '', 1);
+INSERT INTO `urc_member` VALUES (16, 'hugorobot', '249c74900ff11712eb74680d0aa6b26f', 'ropho164@yahoo.com.vn', 'pho dang', '9-17-2010', 'LA', '0937406466', '301103740', 0, '', 0);
+INSERT INTO `urc_member` VALUES (20, 'mediagurus', '96e79218965eb72c92a549dd5a330112', 'rere@er.rere', 'rew rewr ewr', '9-21-2010', '432432432 r wer ewr', '0937406466', '543534534543543', 0, '', 1);
+INSERT INTO `urc_member` VALUES (21, 'rophodangvan', '96e79218965eb72c92a549dd5a330112', 'ropho164@yahoo.com', 'dang van ro pho', '9-21-2010', 'Le Van Si', '0937406466', '1111111111', 0, '', 1);
+INSERT INTO `urc_member` VALUES (22, 'hugogo', '96e79218965eb72c92a549dd5a330112', 'ropho164@yahoo.com', 'dang van ropho', '9-21-2010', 't ewtr ewr', '0937406466', '432432432', 0, '', 1);
+INSERT INTO `urc_member` VALUES (23, 'ropho113', '96e79218965eb72c92a549dd5a330112', 'dvrph@yahoo.com', 'dang van ropho', '9-21-2010', 'la', '0937406466', '0909090909', 0, '', 1);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `urc_tintuc`
+-- 
+
+DROP TABLE IF EXISTS `urc_tintuc`;
+CREATE TABLE IF NOT EXISTS `urc_tintuc` (
+  `TTuc_Id` int(10) unsigned NOT NULL auto_increment,
+  `TTuc_LTin_Id` tinyint(3) unsigned NOT NULL default '0',
+  `TTuc_Order` int(11) NOT NULL default '0',
+  `TTuc_Hinh` varchar(255) NOT NULL default '',
+  `TTuc_HinhLon` text NOT NULL,
+  `TTuc_TieuDe` text NOT NULL,
+  `TTuc_TomTat` text NOT NULL,
+  `TTuc_NoiDung` text NOT NULL,
+  `TTuc_Update` date NOT NULL default '0000-00-00',
+  `TTuc_Status` tinyint(4) NOT NULL default '0',
+  `TTuc_Active` tinyint(4) NOT NULL default '0',
+  `TTuc_Hot` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`TTuc_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- 
+-- Dumping data for table `urc_tintuc`
+-- 
+
+INSERT INTO `urc_tintuc` VALUES (1, 1, 10, '12848785772.jpg', '12848785772.jpg', 'Tranh cãi gay gắt về kịch bản ‘Khát vọng Thăng Long’', 'Trước thông tin bộ phim nhựa duy nhất về Lý Công Uẩn làm kỷ niệm Đại lễ 1000 năm có thể bị một người từng tham gia khâu biên kịch kiện, đạo diễn Lưu Trọng Ninh khẳng định, kịch bản do anh và Charlie Nguyễn chắp bút hoàn toàn.', '<p><img width="492" height="648" alt="" src="http://localhost:9090/chiaseniemvui/uploads/image/19-09-2010/2.jpg" /></p>\r\n<p>Trước th&ocirc;ng tin bộ phim nhựa duy nhất về L&yacute; C&ocirc;ng Uẩn l&agrave;m kỷ niệm Đại lễ 1000 năm c&oacute; thể bị một người từng tham gia kh&acirc;u bi&ecirc;n kịch kiện, đạo diễn Lưu Trọng Ninh khẳng định, kịch bản do anh v&agrave; Charlie Nguyễn chắp b&uacute;t ho&agrave;n to&agrave;n.</p>\r\n<p>Trước th&ocirc;ng tin bộ phim nhựa duy nhất về L&yacute; C&ocirc;ng Uẩn l&agrave;m kỷ niệm Đại lễ 1000 năm c&oacute; thể bị một người từng tham gia kh&acirc;u bi&ecirc;n kịch kiện, đạo diễn Lưu Trọng Ninh khẳng định, kịch bản do anh v&agrave; Charlie Nguyễn chắp b&uacute;t ho&agrave;n to&agrave;n.</p>\r\n<p>Trước th&ocirc;ng tin bộ phim nhựa duy nhất về L&yacute; C&ocirc;ng Uẩn l&agrave;m kỷ niệm Đại lễ 1000 năm c&oacute; thể bị một người từng tham gia kh&acirc;u bi&ecirc;n kịch kiện, đạo diễn Lưu Trọng Ninh khẳng định, kịch bản do anh v&agrave; Charlie Nguyễn chắp b&uacute;t ho&agrave;n to&agrave;n.</p>\r\n<p>Trước th&ocirc;ng tin bộ phim nhựa duy nhất về L&yacute; C&ocirc;ng Uẩn l&agrave;m kỷ niệm Đại lễ 1000 năm c&oacute; thể bị một người từng tham gia kh&acirc;u bi&ecirc;n kịch kiện, đạo diễn Lưu Trọng Ninh khẳng định, kịch bản do anh v&agrave; Charlie Nguyễn chắp b&uacute;t ho&agrave;n to&agrave;n.</p>\r\n<p>Trước th&ocirc;ng tin bộ phim nhựa duy nhất về L&yacute; C&ocirc;ng Uẩn l&agrave;m kỷ niệm Đại lễ 1000 năm c&oacute; thể bị một người từng tham gia kh&acirc;u bi&ecirc;n kịch kiện, đạo diễn Lưu Trọng Ninh khẳng định, kịch bản do anh v&agrave; Charlie Nguyễn chắp b&uacute;t ho&agrave;n to&agrave;n.</p>', '2010-09-17', 0, 1, 0);
+INSERT INTO `urc_tintuc` VALUES (2, 1, 0, '128474480646e70f3f227e2.jpg', '128474480646e709143de24.jpg', 'test demo', 'test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo test demo', '<p><img alt="" width="560" height="773" src="http://localhost:9090/chiaseniemvui/uploads/image/2010/18.jpg" /></p>', '2010-09-17', 0, 1, 0);
+INSERT INTO `urc_tintuc` VALUES (3, 1, 10, '128487886918.jpg', '128487886918.jpg', 'tin tuc khac', 'tin tuc khac', '<p>tin tuc khac</p>', '2010-09-19', 0, 1, 0);
+INSERT INTO `urc_tintuc` VALUES (4, 1, 12, '128487890516.jpg', '128487890516.jpg', 'c2life demo tin tuc', 'c2life demo tin tuc', '<p>c2life demo tin tuc</p>', '2010-09-19', 0, 1, 0);
+INSERT INTO `urc_tintuc` VALUES (5, 1, 1, '128487895529.jpg', '128487895531.jpg', 'Cập nhật tin tuc moi', 'Cập nhật tin tuc moi', '<p>&nbsp;</p>\r\n<p><font size="1" face="Segoe UI">Trong s&aacute;ng c&ugrave;ng với nhịp điệu rộn r&atilde; h&ograve;a quyện giữa nhạc cụ d&acirc;n tộc v&agrave; Hiphop, b&agrave;i h&aacute;t &quot;Bản sắc Việt Nam&quot; của Tằng Quốc Anh ch&iacute;nh l&agrave; lời ch&agrave;o d&agrave;nh cho những du kh&aacute;ch lần đầu đến Việt Nam.<br />\r\n</font><img alt="" width="450" height="675" src="http://localhost:9090/chiaseniemvui/uploads/image/19-09-2010/25zi5fp.jpg" /><br />\r\n&nbsp;Bằng ng<font size="1" face="Segoe UI"><font size="1" face="Segoe UI">&ocirc;n từ </font></font><font size="1" face="Segoe UI"><font size="1" face="Segoe UI">đơn giản, trong s&aacute;ng c</font></font><font size="1" face="Segoe UI"><font size="1" face="Segoe UI">&ugrave;ng với nhịp </font></font><font size="1" face="Segoe UI"><font size="1" face="Segoe UI">điệu rộn r</font></font><font size="1" face="Segoe UI"><font size="1" face="Segoe UI">&atilde; h&ograve;a quyện giữa nhạc cụ d&acirc;n tộc v&agrave; Hiphop, b&agrave;i h&aacute;t &quot;Bản sắc Việt Nam&quot; của Tằng Quốc Anh ch&iacute;nh l&agrave; lời ch&agrave;o d&agrave;nh cho những du kh&aacute;ch lần </font></font><font size="1" face="Segoe UI"><font size="1" face="Segoe UI">đầu đến Việt Nam.</font></font></p>', '2010-09-19', 0, 1, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `urc_typelife`
+-- 
+
+DROP TABLE IF EXISTS `urc_typelife`;
+CREATE TABLE IF NOT EXISTS `urc_typelife` (
+  `Id` int(11) NOT NULL auto_increment,
+  `TLife_Id` int(11) NOT NULL default '0',
+  `TLife_Name` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+-- 
+-- Dumping data for table `urc_typelife`
+-- 
+
+INSERT INTO `urc_typelife` VALUES (10, 1, 'Gia &#273;&#236;nh');
+INSERT INTO `urc_typelife` VALUES (11, 2, 'B&#7841;n b&#232;');
+INSERT INTO `urc_typelife` VALUES (12, 3, 'T&#236;nh y&#234;u');
+INSERT INTO `urc_typelife` VALUES (13, 4, 'Cu&#7897;c s&#7889;ng');

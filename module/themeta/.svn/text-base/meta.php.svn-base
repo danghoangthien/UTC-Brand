@@ -1,0 +1,50 @@
+<?
+include_once ("config.php");
+include_once 'htinmotion/orm/resources/class.database.php';
+include_once 'htinmotion/orm/generated_classes/class.todaytopic.php';
+
+$title=SITE_TITLE;
+if(matchpage("thao-luan.php"))
+{
+$title.="-Thảo luận";
+$keyword="Thảo luận về giảm cân,chuyên đề thảo luận của Stada,";
+$description="Các chuyên đề thảo luận giảm cân cùng bạn, ";	
+}
+if(matchpage("dinh-duong-giam-can.php") || matchpage("dinh-duong.php") || matchpage("giam-can.php"))
+{
+$title.="-Dinh dưỡng giảm cân";
+$keyword="Tin tức về giảm cân,dinh dưỡng thuộc chương trình giảm cân cùng bạn của Stada,";
+$description="Tin tức về giảm cân,dinh dưỡng thuộc chương trình giảm cân cùng bạn của Stada, ";		
+}
+if(matchpage("dinh-duong-giam-can-chi-tiet.php")||matchpage("luyen-tap-chi-tiet.php")||matchpage("thao-luan-chi-tiet.php"))
+{
+$tp = new todaytopic();
+$tp->select($_GET["t_id"]);
+$title.="-".$tp->todaytopic_title;	
+$description="Bài viết về giảm cân,dinh dưỡng,luyện tập thuộc chương trình giảm cân cùng bạn của Stada,";
+$keyword=$tp->todaytopic_desc.", ";	
+}
+
+
+if(matchpage("luyen-tap.php") || matchpage("luyen-tap-dung-cu.php") || matchpage("luyen-tap-khong-dung-cu.php"))
+{
+$title.="-Luyện tập,Luyện tập dụng cụ,Luyện tập tay không";
+$keyword="Luyện tập để giảm cân,luyện tập để giữ vóc dáng,sức khỏe, ";
+$description="Chế độ tập luyện trong chương trình Stada giảm cân cùng bạn,luyện tập với dụng cụ,luyện tập tay không";		
+}
+
+if(matchpage("tu-van.php") )
+{
+$title.="-Tư vấn";
+$keyword="Tư vấn về sản phẩm stada,tư vấn về sức khỏe,luyện tập,dinh dưỡng,giảm cân,chế độ tập luyện";
+$description="Tư vấn,trao đổi,giải đáp thắc mắc trong chương trình Stada giảm cân cùng bạn, ";			
+}
+
+$keyword.="Giảm cân,giamcan,giam can,Giảm cân cùng bạn,giamcancungban,giam can cung ban,chuyên đề giảm cân,bí quyết giảm cân,mẹo giảm cân,sức khỏe,phụ nữ";
+$description.="Giảm cân cùng bạn - Stada";
+?>
+<title><?php echo $title ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="3600" http-equiv="REFRESH">
+<meta content="<?php echo $description ?>" name="description">
+<meta content="<?php echo $keyword ?>" name="keywords">

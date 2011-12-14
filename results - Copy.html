@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Th&#7875; hi&#7879;n ki&#7871;n th&#7913;c -  L&#7845;y ngay qu&agrave; th&#432;&#7903;ng</title>
+<style type="text/css">
+<!--
+
+-->
+</style>
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/magik.js"></script>
+<script>
+function Animation1() 
+		{
+			move("teapot1", 0, 0, 0, 300, 5, 0, styleSin, false, null, 
+			  function() { move("teapot1", 0, 300, 0, 0, 5, 20, styleSin); });
+		}
+		
+		function Animation2() 
+		{
+			fade("teapot2", 1, 0, 5, 0, styleLinear, false, null, 
+			  function() { fade("teapot2", 0, 1, 5, 0, styleLinear); });
+		}
+		
+		function Animation3() 
+		{
+			scale("all24", 100, 100, 250, 250, 2, 0, styleBounceMore, false, null, 
+			  function() 
+			  { scale("all24", 250, 250, 100, 100, 2, 10, styleBounceMore); 
+			  });
+		}
+		
+		function Animation4() 
+		{
+			morph("all24", "teapot5", 93, 117, 100, 65, 6, 0, styleSin, false, null, 
+				function() { morph("teapot5", "teapot4", 100, 65, 93, 117, 6, 10, styleSin ); });
+		}
+</script>
+</head>
+
+<body>
+<table width="860" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><img src="images/top.jpg" width="860" height="66" /></td>
+  </tr>
+  <tr>
+    <td valign="top" style="background-image:url(images/final.jpg); width:860px; height:596px;">
+    <div id="right3" >
+    <div style="position:relative;top:0px;left:0px">
+    <img id="all24" onclick="Animation3()" src="images/all24logohome.png" width="100px"/>
+    </div>
+    
+</div>
+    
+    </td>
+  </tr>
+  <tr>
+    <td><div id="footer">
+        <table width="100%">
+        <tr valign="top">
+        <td align="left" width="30%"><a href="#">Privacy statement</a></td>
+        <td align="center" width="40%"><a href="#">Using this site means you accept its terms
+</a><br />
+© 2011 Hewlett-Packard Development Company, L.P.</td>
+        <td align="right" width="30%"><a href="#">Feedback to webmaster</a></td>
+        </tr>
+        </table>
+        </div></td>
+  </tr>
+</table>
+</body>
+</html>

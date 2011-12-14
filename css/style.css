@@ -1,0 +1,287 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+:focus {
+	outline: 0;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body {
+	font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+}
+a {
+	color: blue;
+	outline: none;
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+/* Begin of styles for the demonstration (you can remove them) */
+a.expand {
+	width: 150px;
+	display: block;
+	margin: 10px 0 0;
+}
+a.expand:hover {
+	height: 500px;
+}
+/* End of of styles for the demonstration */
+p {
+	margin: 0 0 18px
+}
+img {
+	border: none;
+}
+input {
+	vertical-align: middle;
+}
+#wrapper {
+	width: 100%;
+	min-width: 1000px;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+	height: 60px;
+	background: #000;
+}
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+	border-left: 250px solid #fff;
+	height: 1%;
+}
+#middle:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+#container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	margin-right: -100%;
+}
+#content {
+	padding: 0 20px;
+}
+
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+	float: left;
+	width: 250px;
+	min-height:450px;
+	position: relative;
+	background: #fff;
+	left: -250px;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+	height: 100px;
+	background:  #000;
+}
+/*
+ * Table Sorter
+ * /
+ */
+/* tables */
+/*
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(../image/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+*/
+/*
+http://icant.co.uk/csstablegallery/index.php?css=71
+
+Data Tables and Cascading Style Sheets Gallery
+Title: Casablanca
+Author: RODrigo CASTilho Galv�o Ferreira - RODCAST
+URL: http://www.rodcast.com.br
+Update: 04/04/2008 10:51 AM
+*/
+
+table {
+       color: #7F7F7F;
+       font: 0.9em/1.8em "Trebuchet MS",Verdana,sans-serif;
+       border-collapse: collapse
+}
+
+table,caption {
+       margin: 0 auto;
+       border: 1px solid #CCC;
+       border-left: 1px solid #CCC
+}
+
+caption,th,td {
+       border-left: 0;
+       padding: 10px
+}
+
+caption,thead th,tfoot th,tfoot td {
+       background-color: #E63C1E;
+       color: #FFF;
+       font-weight: bold;
+       text-transform: uppercase
+}
+
+thead th {
+       background-color: #C30;
+       color: #FFB3A6;
+       text-align: center
+}
+
+tbody th {
+       padding: 20px 10px
+}
+
+tbody tr.odd {
+       background-color: #F7F7F7;
+       color: #666
+}
+
+tbody a {
+       padding: 1px 2px;
+       color: #333;
+       text-decoration: none;
+       border-bottom: 1px dotted #E63C1E
+}
+
+tbody a:active,tbody a:hover,tbody a:focus,tbody a:visited {
+       color: #666
+}
+
+tbody tr:hover {
+       background-color: #EEE;
+       color: #333
+}
+
+tbody tr:hover a {
+       background-color: #FFF
+}
+
+tbody td+td+td+td a {
+       color: #C30;
+       font-weight: bold;
+       border-bottom: 0
+}
+
+tbody td+td+td+td a:active,tbody td+td+td+td a:hover,tbody td+td+td+td
+a:focus,tbody td+td+td+td a:visited {
+       color: #E63C1E
+}
+
+tbody td a[href="http://www.rodcast.com.br/"] {
+       margin: 0 auto;
+       display: block;
+       width: 15px;
+       height: 15px;
+       background: transparent
+url('data:image/gif;base64,R0lGODlhDwAPAIAAACEpMf///yH5BAAAAAAALAAAAAAPAA8AAAIjjA8Qer0JmYvULUOlxXEjaEndliUeA56c97TqSD5pfJnhNxYAOw%3D%3D')
+no-repeat;
+       text-indent: -999em;
+       border-bottom: 0
+}
+
+tbody a:visited:after {
+       font-family: Verdana,sans-serif;
+       content: "\00A0\221A"
+}
+/*accrodion li*/
+#accordion div ul li{
+	width:180px;
+	
+}
+/*jq transform*/
+#formAdmin .rowElem{
+	margin:5px;
+}
+#formAdmin .rowElem label{
+	float:left;width:200px;	
+}
+#formAdmin .rowElem input{
+	width:700px;
+}
+#formAdmin legend{
+	text-align:center;padding-left:450px;
+}
+#myTable input[type="image"]{width:50px;height:50px}
+#formAdmin form button{
+	margin-top:10px;
+	margin-left:450px;
+}
+ 

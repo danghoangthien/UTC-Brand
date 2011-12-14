@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+*{margin:0px;padding:0px}
+body{ background:url('wood_bg.jpg') repeat} 
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/magik.js"></script>
+<script type="text/javascript" src="js/rafael2d.js"></script>
+<script type="text/javascript" src="js/jquery.transform.js"></script>
+<script>
+
+</script>
+<script>
+$(document).ready(function(){
+	var r=-35;
+	var rc=35;
+	$("div#p2c")
+	.css({"overflow":"hidden",background:"",width:"200px",height:"160px",position:"relative","z-index":100,top:"0px",left:"35px"}).animate({rotate:"35deg"});
+	$("div#p2")
+	.css({position:"relative","z-index":100,width:"200px",height:"160px",top:"-180px",left:"30px"}).animate({rotate:r+"deg"});
+	setInterval(function(){
+		var top=$("div#p2").position().top+1;
+		var left=$("div#p2").position().left-1;
+		r++;
+		rc++;
+		$("div#p2c")
+		.animate({rotate:rc+"deg"});
+		$("div#p2")
+		.css({top:top+"px",left:left+"px"})
+	},300)
+	
+})
+</script>
+</head>
+
+<body>
+<div style="color:#fff;font-weight:900;font-size:15px;position:absolute;left:300px;top:280px;">
+<div id="img_title" style="color:#fff;font-weight:900;font-size:15px;position:absolute;width:300px">Image Title</div>
+</div>
+<div id="view" style="position:absolute;top:40px;left:550px;width:200px;height:200px;">
+
+</div>
+<div id="thumbnail" style="position:absolute;bottom:100px;left:350px;width:600px;height:100px;">
+    <img style="position:absolute;z-index:100" class="thumb"  id="thumb_0" img_title="Angelababy HK Idol"
+    src="gallery/Angelababy.jpg" width="200px" height="160px"/>
+    <div id="p2c">
+        <div id="p2" style="">
+        <img style="" class="thumb"  id="thumb_0" img_title="Angelababy HK Idol"
+        src="gallery/Messi.jpg" width="200px" height="160px"/>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

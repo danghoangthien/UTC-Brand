@@ -1,0 +1,56 @@
+<?php   
+  class general
+  {
+  	var $databasetype="mysql"; 
+  	var $server = HOST;
+    var $user   = USERNAME;
+    var $password = PASS;
+    var $database = DATABASE;
+  	function general(){}
+    function getSQL($sql,$mode=-1)
+	    {	    	
+	    	$db = ADONewConnection($this->databasetype); 
+		    //$db->debug = true; 
+			if(DEBUG) $db->debug = DEBUG; 
+			//$db->Execute("SET NAMES utf8 COLLATE utf8_unicode_ci"); 
+		    $db->Connect($this->server, $this->user, $this->password, $this->database); 
+			if($mode==0) $db->SetFetchMode(ADODB_FETCH_ASSOC);
+			if($mode==1) $db->SetFetchMode(ADODB_FETCH_NUM);
+			
+		    $rs = $db->Execute($sql); 
+		   	//return rs2html($rs,'border=2 cellpadding=3'); 
+		   /*
+	  		$arr=$rs->getRows();
+	  		  	print "<pre>"; 
+    			print_r($arr); 
+    			print "</pre>"; 
+	  		*/	
+		    $arr=$rs->getRows();
+		    return $arr;   		
+	    }
+      function executeSQL($sql)
+	    {	    	
+	    	$db = ADONewConnection($this->databasetype); 
+		    if(DEBUG) $db->debug = DEBUG; 
+		    $db->Connect($this->server, $this->user, $this->password, $this->database); 
+			
+		    $rs = $db->Execute($sql);		
+	    }	
+	  function getLoader($sql)
+	  {
+	  	 $assoc=$this->getSQL($sql,0);	 	  	 
+	  	 return $assoc[0];
+	  	
+	  }  
+	  function getOptionList($sql)
+	  {
+		  $optionList=array();
+	  	 $assoc=$this->getSQL($sql,1);	  	 
+	  	 foreach($assoc as $v)
+		 {
+			 $optionList[$v[0]]=$v[1];
+		}
+	  	return $optionList;
+	  }  
+  }
+  ?>

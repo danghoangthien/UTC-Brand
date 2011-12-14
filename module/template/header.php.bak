@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title><?php echo SITE_TITLE ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link media="screen" type="text/css" href="stada.css" rel="stylesheet">
+<link media="screen" type="text/css" href="stada_thien.css" rel="stylesheet">
+<link media="screen" type="text/css" href="css/slide.css" rel="stylesheet">
+<script type="text/javascript" language="javascript" src="js/csspopup.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.jqDock.min.js" ></script>	
+<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>  
+<script type="text/javascript" >
+          function ajaxLoadContent(loadUrl, divID) {
+              $("#"+divID).html("đang tải dữ liệu ...");  
+			  $("#"+divID).show("slow",function(){
+				   $(this).load(loadUrl,function(responseText) {				   			   
+              			$(this).html(responseText);
+              });
+				  });  
+          }
+</script>
+</head>
+<body>
+<div id="blanket" style="display:none;"></div>
+
+<!--DANG NHAP-->
+<div id="popUpDiv" style="display:none;">
+
+<div class="head">Đăng nhập</div>
+<div class="close"><a href="#" onclick="popup('popUpDiv')">ĐÓNG</a></div>
+Vui lòng đăng nhập để có thể sử dụng các tiện ích trên website, như nhật ký giảm cân, tham dự trò chơi có thưởng... Nếu bạn chưa phải là thành viên, hãy <a href="#" onclick="popup('popUpDiv');popup('popUpDiv2')">đăng ký ngay!</a><br><br>
+<form action="dang-nhap.php" method="get" name="formdangky">
+<table width="250" cellpadding="2" cellspacing="2" align="center">
+<tr>
+<td><strong>Tên đăng nhập:</strong></td><td><input name="tendangnhap" type="text"></td>
+</tr>
+<tr>
+<td><strong>Mật khẩu:</strong></td><td><input name="matkhau" type="password"></td>
+</tr>
+<tr><td></td><td><input name="dangnhapsubmit" type="submit" value="Đăng nhập" class="button"></td></tr>
+</table>
+</form>
+</div>
+<!--/DANG NHAP-->
+
+<!--DANG KY-->
+<div id="popUpDiv2" style="display:none;">
+<div class="head">Đăng ký</div>
+<div class="close"><a href="#" onclick="popup('popUpDiv2')">ĐÓNG</a></div>
+<form action="dang-ky.php" method="get" name="formdangky">
+<table width="100%" cellpadding="3" cellspacing="3">
+<tr>
+<td><strong>Tên đăng nhập:</strong></td><td><input name="tendangnhap" type="text"></td>
+<td><strong>Họ tên:</strong></td><td><input name="hoten" type="text"></td>
+</tr>
+<tr>
+<td><strong>Mật khẩu:</strong></td><td><input name="matkhau" type="password"></td>
+<td><strong>Địa chỉ:</strong></td><td><input name="hoten" type="text"></td>
+</tr>
+<tr>
+<td><strong>Nhập lại mật khẩu:</strong></td><td><input name="matkhau2" type="password"></td>
+<td><strong>CMND:</strong></td><td><input name="cmnd" type="text"></td>
+</tr>
+<tr>
+<td><strong>Email:</strong></td><td><input name="email" type="text"></td>
+<td><strong>Điện thoại:</strong></td><td><input name="dienthoai" type="text"></td>
+</tr>
+<tr><td colspan="4" align="center"><br /><input name="dangkysubmit" type="submit" value="Đăng ký" class="button"> <input name="dangkyreset" type="reset" value="Nhập lại" class="button"></td></tr>
+</table>
+</form>
+</div>
+<!--/DANG KY-->
+
+<center>
+<div id= "header" align="center"><img src="img/header.jpg" alt="" width="1000" height="183" border="0" usemap="#Map2">
+  <map name="Map2">
+    <area shape="rect" coords="863,3,970,23" href="#" onclick="popup('popUpDiv')">
+  </map>
+</div>

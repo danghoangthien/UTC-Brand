@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+*{margin:0px;padding:0px}
+body{ background:url('wood_bg.jpg') repeat} 
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/magik.js"></script>
+<script type="text/javascript" src="js/rafael2d.js"></script>
+<script type="text/javascript" src="js/jquery.transform.js"></script>
+<script>
+function log(msg) {
+  //console.log("%s: %o", msg, this);
+  return this;
+};
+function Animation1() 
+{
+	move("teapot1", 0, 0, 0, 300, 5, 0, styleSin, false, null, 
+	  function() { move("teapot1", 0, 300, 0, 0, 5, 20, styleSin); });
+}
+
+function Animation2() 
+{
+	fade("teapot2", 1, 0, 5, 0, styleLinear, false, null, 
+	  function() { fade("teapot2", 0, 1, 5, 0, styleLinear); });
+}
+
+function Animation3() 
+{
+	scale("all24", 100, 100, 250, 250, 2, 0, styleBounceMore, false, null, 
+	  function() 
+	  { scale("all24", 250, 250, 100, 100, 2, 10, styleBounceMore); 
+	  });
+}
+
+function Animation4() 
+{
+	morph("all24", "teapot5", 93, 117, 100, 65, 6, 0, styleSin, false, null, 
+		function() { morph("teapot5", "teapot4", 100, 65, 93, 117, 6, 10, styleSin ); });
+}
+bindThumb();
+$(".current").live("click",function(){
+	rebound($(this));
+})	
+$("#img_title").live('click',function(){
+					$("body").data("img_title_w",$("#img_title").width());
+					$("body").data("img_title_h",$("#img_title").height());
+					$(this).html($(".current").attr("img_title"));
+					move("img_title", 0, 0, 0, 300, 5, 0, styleSin, false, null, 
+	  							function() {
+										//$(this).transform({rotate:r+"deg"}).css("border","solid 4px #010508").css("z-index",0);  
+										});
+										
+	})
+
+function rebound(selector){
+	var width=$(selector).width();
+	var height=$(selector).height();
+	var scale_width=$(selector).attr("oriW");//alert($scale_width);
+	var scale_height=$(selector).attr("oriH");//alert($scale_height);
+	var moveX=$(selector).attr("movex");
+	var moveY=$(selector).attr("movey");
+	scale($(selector).attr("id"), width, height, scale_width, scale_height, 2, 0, styleSin, false, null, 
+				  function() 
+				  {  
+				  	$(selector).removeClass("current");
+					move($(selector).attr("id"), 0, 0,0,0, 5, 0, styleSin, false, null,
+					 function(){
+						 var id=$(selector).attr("oriID");
+						$(selector).attr("id",id);
+					});
+				  });
+	
+}
+function unbindThumb()
+{
+	//$(".current").die("click");
+	for (var i=0;i<6;i++)
+	{
+		$("#thumb_"+i).die("click");
+	}
+}
+function bindThumb()
+{
+	
+	for (var i=0;i<6;i++)
+	{
+		$("#thumb_"+i).live('click',function(){
+			$(".current").trigger('click');
+			popping($(this),"#view");
+			
+		});
+	}
+}
+function popping(selector,view)
+{
+	unbindThumb();
+	log("view left:"+$(view).offset().left);
+	log("view top:"+$(view).offset().top);
+	var width=$("body").data(selector.attr("id")+"_w");
+	var height=$("body").data(selector.attr("id")+"_h");
+	$moveY=$(view).offset().top-$(selector).offset().top ;
+	$moveX=$(view).offset().left - $(selector).offset().left;//alert($("#all24").css("height"));
+	log("mx:"+$moveX);
+	log("my:"+$moveY);
+	log("this left:"+$(selector).offset().left);
+	log("this top:"+$(selector).offset().top);
+	$(selector).removeClass("thumb").addClass("current");
+	move($(selector).attr("id"), 0, 0, $moveY,$moveX, 5, 0, styleSin, false, null, 
+			  function() { 
+			  		scale($(selector).attr("id"), width, height, width*2, height*2, 2, 0, styleSin, false, null, 
+				  function() 
+				  { 
+				  	$(selector).attr({
+					  movex: $moveX, movey: $moveY,
+					  oriW: width,
+					  oriH: height,
+					  oriID:$(selector).attr('id')
+					});
+					$(selector).attr('id',"current_id")
+					//$("#img_title").fadeIn("slow",function(){
+						
+					//});
+					
+					//$("<span>AAA</span>").appendTo("#preview")
+					if(!$.browser.msie)	
+					{
+						$("#current_id").mouseenter(function(){
+							var r = Math.floor(Math.random()*41)-20;	
+							$(this).css("border","solid 4px #fff").css("z-index",100).animate({rotate:r+"deg"});
+							
+						//$(this).css("border","solid 4px #fff").css("z-index",100).transform({rotate:r+"deg"});
+						})
+					//
+					}
+					$("#img_title").trigger("click");
+					bindThumb();
+				  });
+			   });
+}
+</script>
+<script>
+$(document).ready(function(){
+	$("#thumbnail img").each(function(){
+		var r = Math.floor(Math.random()*41)-20;	
+		$("body").data($(this).attr("id")+"_w",$(this).width());	//alert(($(this).attr("id")+"_w"));	
+		$("body").data($(this).attr("id")+"_h",$(this).height());	
+		$(this).transform({rotate:r+"deg"}).css("border","solid 4px #010508").css("z-index",0);
+		$(this).mouseenter(function(){
+			var r = Math.floor(Math.random()*41)-20;	
+			$(this).not(".current").css("border","solid 4px #fff").css("z-index",100).animate({rotate:r+"deg"});
+			//$(this).css("border","solid 4px #fff").css("z-index",100).transform({rotate:r+"deg"});
+		}).mouseleave(function(){
+			var r = Math.floor(Math.random()*41)-20;			
+		    $(this).not(".current").animate({rotate:r+"deg"}).css("border","solid 4px #010508").css("z-index",0);
+		})
+	})
+	$("#thumb_1").trigger('click');
+})
+</script>
+</head>
+
+<body>
+<div style="color:#fff;font-weight:900;font-size:15px;position:absolute;left:300px;top:280px;">
+<div id="img_title" style="color:#fff;font-weight:900;font-size:15px;position:absolute;width:300px">Image Title</div>
+</div>
+<div id="view" style="position:absolute;top:40px;left:550px;width:200px;height:200px;">
+
+</div>
+<div id="thumbnail" style="position:absolute;bottom:100px;left:350px;width:600px;height:100px;">
+    <img style="position:absolute;z-index:100" class="thumb"  id="thumb_0" img_title="Angelababy HK Idol"
+    src="gallery/Angelababy.jpg" width="100px" height="80px"/>
+    <img style="position:absolute;z-index:100;margin-left:100px" class="thumb"  id="thumb_1" 
+    img_title="DavidVilla - Barcelona FC" src="gallery/DavidVilla.jpg" width="80px" height="100px"/>
+	<img style="position:absolute;z-index:100;margin-left:200px" class="thumb"  id="thumb_2" img_title="KatyPerry Singer Adidas fan"
+    src="gallery/KatyPerry.jpg" width="100px" height="80px"/>
+    <img style="position:absolute;z-index:100;margin-left:300px" class="thumb"  id="thumb_3" img_title="BOB Singer Adidas fan"
+    src="gallery/BOB.jpg" width="80px" height="100px"/>
+    <img style="position:absolute;z-index:100;margin-left:400px" class="thumb"  id="thumb_4" img_title="Messi- Barcelona FC"
+    src="gallery/Messi.jpg" width="100px" height="80px"/>
+    <img style="position:absolute;z-index:100;margin-left:500px" class="thumb"  id="thumb_5" img_title="DerrickRose Basketball Player Chicago"
+    src="gallery/DerrickRose.jpg" width="80px" height="100px"/>
+</div>
+
+</body>
+</html>

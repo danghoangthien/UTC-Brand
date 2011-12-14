@@ -1,0 +1,85 @@
+<?php 
+session_start();
+//1 database config
+include '../../../config.php';
+//2 neccessary library
+include '../../../htinmotion/orm/adodb5/adodb.inc.php';
+include '../../../htinmotion/orm/general/general.php';
+include '../../../htinmotion/fckeditor/fckeditor.php';
+//3 lay out
+include '../../../template/admin/admin_head.php';
+include '../../../template/admin/admin_header.php';
+//4 code behind
+include '../../../htinmotion/orm/resources/class.database.php';
+include '../../../htinmotion/orm/generated_classes/class.quiz.php';
+include '../../../htinmotion/orm/generated_classes/class.quizanswer.php';
+include '../../../htinmotion/formgenerator/formgenerator.php';
+include '../../../htinmotion/formgenerator/validators.php';
+include '../../../htinmotion/material_upload/image_upload.php';
+//5 raise error
+include '../../../template/admin/raiseerror.php';
+//coding structure
+
+	if($_POST)
+	{	
+		
+		$q=new quiz();
+		if(strlen($_POST["quiz_question"])<5)
+		{
+			$error[0]=INVALID_TITLE;
+		}
+		else
+		{
+			$q->quiz_question=$_POST["quiz_question"];
+		}
+		if(strlen($_POST["correct_question"])<5)
+		{
+			$error[0]=INVALID_TITLE;
+		}
+		
+		if($error==0)
+		{
+			$q->insert();
+			for($i=1;$i<7;$i++)
+			{			
+				if(strlen($_POST["quizanswer_content".$i])>5)
+				{		
+					$qa=new quizanswer();			
+					$qa->quiz_id=$q->quiz_id;
+					$qa->quizanswer_content=$_POST["quizanswer_content".$i];
+		
+					$qa->insert();
+					if ($_POST["quizanswer_content".$i]==$_POST["correct_question"])
+					{
+						$q->quiz_question=$_POST["quiz_question"];
+						$q->correct_id=$qa->quizanswer_id;
+						$q->update($q->quiz_id);
+					}				
+				}				
+			}		
+			echo '<script>location.href="addquiz.php?active=0"</script>';		
+		}			
+		else raiseerror($error);//raiseerror				
+	}	
+		echo "<div id='formAdmin'>";					    
+		//------create form & setup form					
+        $form=new Form();$general = new general();                    
+        $form->setMulti(array("title"=>"Add New Quiz Form","name"=> "addquiz","linebreaks"=>false,"action"=> "","divs"=> true,));      
+        $form->JSprotection("36CxgD");	
+               
+        //$form->addField("text", "quiz_question","C&#226;u h&#7887;i",false);	
+			
+		$form->addField("textarea", "quiz_question","C&#226;u h&#7887;i(*)", false, false, "cols='87' rows='3'");
+		$form->addField("text", "correct_question","C&#226;u d&#250;ng",false);	
+		for($i=1;$i<7;$i++)
+		{
+			$form->addField("textarea", "quizanswer_content".$i,"Tr&#7843; l&#7901;i $i(*)", false, false, "cols='87' rows='2'");
+		}
+		
+        $form->addItem("<div class='rowElem'><hr/></div>");	    			             						      
+        $form->display("Submit", "form1_submit");  
+        $result=($form->getData());unset($form);echo "</div>";         																		           			
+//lay out
+include '../../../template/admin/admin_sidebar.php';
+include '../../../template/admin/admin_footer.php';
+?>

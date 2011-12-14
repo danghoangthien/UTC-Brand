@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+	var url = $.url();
+	var basename=url.attr("file");
+	$("#basename").val(basename);
+	});
+	$("#username").mouseover(function(){
+						var temp_username=$(this).val();
+						$(this).val("");
+						$(this).mouseout(function(){
+							if($(this).val()=="Username")
+								{
+									$(this).val(temp_username);
+								}
+							});
+	}); 
+	$("#password").click(function(){						
+						$(this).val("");						
+	}); 
+
+</script>
+<form action="module/thanhvien/dangky-dangnhap.php" method="post" name="loginform">
+<input name="username" id="username" class="logtext" type="text" value="Username" />
+<input name="password" id="password"  class="logtext" type="password" value="Password" />
+<input id="basename"  type="hidden" value="" />
+<input name="type"  type="hidden" value="login" />
+<input name="login" onclick="this.form.submit()" style="vertical-align:bottom" type="button" value="" class="logbut" id="logbut" />
+</form><br />
+Chưa là thành viên? Hãy <b><a href="register.php">Đăng ký</a></b>!

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script> 
+	<script type="text/javascript" src="../js/jquery.tmpl.js"></script>
+    <script id="attend_template" type="text/x-jquery-tmpl">
+    	<div>${row.attend_name}</div>
+    </script>
+	<script type="text/javascript">
+    $.fn.ready(function(){
+		// 1 load pages
+		$.ajaxSetup({
+  			url: 'load_data2.php',
+			type:'POST',
+			dataType:'json'
+		});
+		no_of_page();
+		bind_page(1);
+		// template
+		// 3 load first page (trigger)
+	})
+	$("li.active").live("click",function(){
+		no_of_page($(this).attr("p"));
+		bind_page($(this).attr("p"));
+	})
+	function no_of_page(cur_page){
+		$.ajax({
+			data:{type:"no_of_page",cur_page:cur_page},
+			dataType:'html',
+			success:function(html){
+				bind_navigation(html);
+			}
+		})
+	}
+	function bind_navigation(html){
+		$("#page_navigation").html(html);
+		return;
+	}
+	function bind_page(page){
+		$.ajax({
+			data:{type:"page",page:page},
+			dataType:'json',
+			success:function(json){
+				$( "#list" ).html($( "#attend_template" ).tmpl( json.rows ));
+			}
+		})
+		
+	}
+    </script>
+</head>
+
+<body>
+<div id="list"></div>
+<div id="page_navigation"></div>
+
+</body>
+</html>

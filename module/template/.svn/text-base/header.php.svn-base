@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<?
+include_once "module/themeta/meta.php";
+?>
+<link media="screen" type="text/css" href="stada.css" rel="stylesheet">
+<link media="screen" type="text/css" href="stada_thien.css" rel="stylesheet">
+<link media="screen" type="text/css" href="css/slide.css" rel="stylesheet">
+<link 				 type="text/css" href="css/redmond/jquery-ui-1.8.4.custom.css" rel="stylesheet"   />
+<link 				 type="text/css" href="css/jquery.ad-gallery.css" rel="stylesheet"   />
+<script type="text/javascript" src="js/stada_tracking.js"></script>  
+<script type="text/javascript" language="javascript" src="js/csspopup.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jqcountdown.js" language="javascript"></script>
+<script type="text/javascript" src="js/jquery.jqDock.min.js" ></script>	
+<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>  
+<script type="text/javascript" src="js/dotimeout.js"></script>  
+<script type="text/javascript" src="js/congcu.js"></script>  
+<script type="text/javascript" >
+          function ajaxLoadContent(loadUrl, divID) {			 
+              $("#"+divID).html("đang tải dữ liệu ...");  			  			
+				   $("#"+divID).load(loadUrl,function(responseText) {				   			   
+              			$("#"+divID).html(responseText);
+              });			
+          }
+		    function luudiem()
+		  {
+			ajaxLoadContent("module/trochoi/luudiem.php","luudiem");
+		  }
+</script>
+</head>
+<body>
+<?php include_once ("module/thanhvien/dangky-dangnhap.php");
+if($_SESSION["mem"]){
+			$t="Ch&#224;o: ".$_SESSION["mem"]["member_user"]."&nbsp;";
+			$action="location.href='logout.php'";
+			$do="|&nbsp;Đăng xuất";
+			}
+else
+{
+	$do="&nbspĐăng nhập&nbsp";
+	$action="popup('popUpDiv')";
+}
+?>
+<center>
+<!--HEADER-->
+<div id= "header" align="center">
+<table width="1003" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="830">&nbsp;</td>
+        <td width="24" align="right"><img src="img/top_r.png" width="24" height="26"></td>
+        <td class="toplink" style="white-space:nowrap"><? echo $t ?><a href="#" onclick="<? echo $action; ?>"><? echo $do;?></a></td>
+        <td width="50" align="left"><img src="img/top_l.jpg" width="9" height="26"></td>
+      </tr>
+</table>
+<div style="margin:0px;padding:0px;">
+      <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1003" height="160">
+          <param name="movie" value="flash/top.swf">
+          <param name="quality" value="high">
+          <param name="wmode" value="transparent">
+          <param name="swfversion" value="6.0.65.0">
+          <param name="expressinstall" value="Scripts/expressInstall.swf">
+          <!--[if !IE]>-->
+          <object type="application/x-shockwave-flash" data="flash/top.swf" width="1003" height="160">
+            <!--<![endif]-->
+            <param name="quality" value="high">
+            <param name="wmode" value="transparent">
+            <param name="swfversion" value="6.0.65.0">
+            <param name="expressinstall" value="Scripts/expressInstall.swf">
+            <div>
+              <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+              <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" /></a></p>
+            </div>
+            <!--[if !IE]>-->
+          </object>
+          <!--<![endif]-->
+        </object>
+</div>
+</div>
+<!--/HEADER-->

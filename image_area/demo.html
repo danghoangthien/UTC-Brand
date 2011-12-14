@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css" />
+ <script type="text/javascript" src="scripts/jquery.min.js"></script>
+ <script type="text/javascript" src="scripts/jquery.imgareaselect.pack.js"></script>
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+		var point_1_top=$("#image_map").offset().top+25;
+		var point_1_left=$("#image_map").offset().left+105;
+		var point_2_top=$("#image_map").offset().top+120;
+		var point_2_left=$("#image_map").offset().left+95;
+		$("#image_section").mouseenter(function(){
+			$("#description_section").fadeIn("slow");
+		})
+		
+		$("#image_section").mouseleave(function(){
+			$("#description_section").fadeOut("slow");
+			
+			
+		});
+		
+
+
+		$("#point_1").css({
+	
+		position:"absolute",
+		top : point_1_top+"px",
+		left: point_1_left+"px",
+		width: "150px",
+		height: "50px",
+		background:"url(star_circle.png) no-repeat",
+		backgroundPosition:"center",
+		}).mouseover(function(){
+			$("#point_1_desc").css({
+				background :"#0099ff"
+			})
+			//$("#description_section").show();
+			$("#point_1").css({
+				background:"url(star_circle_mo.png) no-repeat"
+				,backgroundPosition:"center"
+			}).mouseout(function(){
+				$("#point_1").css({
+					background:"url(star_circle.png) no-repeat",
+					backgroundPosition:"center"
+				})
+				$("#point_1_desc").css({
+					background :"none"
+				})
+				//$("#description_section").hide();
+			})
+		})
+		//point 2
+		$("#point_2").css({
+	
+		position:"absolute",
+		top : point_2_top+"px",
+		left: point_2_left+"px",
+		width: "250px",
+		height: "50px",
+		background:"url(star_circle.png) no-repeat",
+		backgroundPosition:"center",
+		}).mouseover(function(){
+			$("#point_2_desc").css({
+				background :"#0099ff"
+			})
+			//$("#description_section").show();		
+			$("#point_2").css({
+				background:"url(star_circle_mo.png) no-repeat"
+				,backgroundPosition:"center"
+			}).mouseout(function(){
+				$("#point_2").css({
+					background:"url(star_circle.png) no-repeat",
+					backgroundPosition:"center"
+				})
+				$("#point_2_desc").css({
+					background :"none"
+				})
+				//$("#description_section").hide();
+			})
+		})
+	});
+ </script>
+</head>
+
+<body>
+
+<div id="image_section" style="width:470px;height:353px;position:absolute;">
+<div id="point_1"></div>
+<div id="point_2"></div>
+	<img id="image_map" src="yard-landscape.jpg" ></img>
+</div>
+
+<div id="description_section" style="display:none;width:250px;height:400px;position:absolute;top:25px;left:490px;border:solid 2px #A21606;background:#BAD88D;margin:10px">
+<div id="point_1_desc" style="width:200px;height:80px;margin:10px">Section 1</div>
+<div id="point_2_desc" style="width:200px;height:80px;margin:10px">Section 2</div>
+</div>
+</body>
+</html>

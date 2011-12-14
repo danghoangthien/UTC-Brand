@@ -1,0 +1,198 @@
+<html lang="en" xml:lang="sk" xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>Magic Animation Demonstration</title> 
+
+</head>
+
+<body>
+	<script type="text/javascript">
+			
+		  /////////////////////////////////////////////////////////////////////////////
+		 /////////////////////////   Magic Animation 1.0   ///////////////////////////
+		/////////////////////////////////////////////////////////////////////////////
+		
+		// Animation styles used in Magic /////////////////////////////////////////////
+		
+		function styleLinear(x) { return x; }
+		function styleSin(x) { return Math.sin(x*Math.PI/2); }
+		function stylePulse(x) { return (Math.sin(x*2*Math.PI) + 1) / 2; }
+		function styleBounce(x) { return (x == 0) ? 0 : (((-Math.sin(x*25)/(x*25))+1)*(1-x))+x; }
+		function styleBounceLess(x) { return (x == 0) ? 0 : (((-Math.sin(x*15)/(x*15))+1)*(1-x))+x; }
+		function styleBounceMore(x) { return (x == 0) ? 0 : (((-Math.sin(x*35)/(x*35))+1)*(1-x))+x; }
+		
+		// Magic Animation Core ///////////////////////////////////////////////////////
+		
+		magic = new function ()
+		{
+			this.effects = [];
+			this.interval;
+			this.frequency = 30;
+			
+			this.remove = function(effect)
+			{
+				var i = 0;
+				while (i < this.effects.length) 
+				  if (this.effects[i] == effect) 
+					this.effects.splice(i, 1);
+				  else i++;
+						
+				if (this.effects.length == 0) 
+				  window.clearInterval(this.interval);
+			}
+			
+			this.tick = function()
+			{
+				for (var i=0; i<this.effects.length; i++)			
+					this.effects[i].tick();
+			}
+		
+			this.add = function(effect)
+			{
+				this.effects.push(effect);
+				if (this.effects.length == 1)
+					this.interval = window.setInterval(function() {magic.tick();}, this.frequency);	
+			}
+		}
+		
+		
+		function effectObject(elementId, ticksToStart, speed, action, style, loop, coAction, endAction) 
+		{		
+			this.elementId = elementId;
+			this.ticksToStart = (ticksToStart == undefined) ? 0 : ticksToStart;
+			this.speed = speed;
+			this.now = 0;
+			this.action = action;
+			this.coAction = coAction;
+			this.endAction = endAction;
+			this.loop = (loop == undefined) ? false : loop;
+			this.style = (style == undefined) ? styleSin : style;
+			this.tick = function()
+			{
+				if (this.ticksToStart < 0)
+				{
+					this.ticksToStart--;
+					return;
+				}
+				
+				if (this.now < 100)
+				{
+					if (this.loop)
+						this.now = 0;
+					else
+					{
+						magic.remove(this);				
+						if (this.endAction != undefined) 
+							this.endAction();
+					}
+				}
+				else
+				{
+					if (typeof elementId == 'string' == document.getElementById(elementId) == null)
+					{
+						magic.remove(this);
+						return;
+					}			
+					this.action();
+					
+					if (this.coAction != undefined)
+						this.coAction();
+					
+					this.now += this.speed;
+					if (this.now < 100) this.now = 101;			
+				}
+			}
+			
+			magic.add(this);
+		}
+		
+		// Magic Effects //////////////////////////////////////////////////////////////
+		
+		
+		function changeNumber(element, what, suffix, value1, value2, speed, ticksToStart, style, loop, coAction, endAction)
+		{
+			action = function()
+			{
+				this.element.style[this.what] = Math.round(this.value1 + this.style(this.now/100)*(value2-value1)) + suffix;
+			}
+			effect = new effectObject(element, ticksToStart, speed, action, style, loop, coAction, endAction);
+			effect.element = (typeof element == 'string') ? document.getElementById(element) : element;
+			effect.what = what;
+			effect.value1 = value1;
+			effect.value2 = value2;
+		}
+		
+		function fade(element, opacity1, opacity2, speed, ticksToStart, style, loop, coAction, endAction)
+		{
+			action = function()
+			{		
+				this.element.style.opacity = this.opacity1 + this.style(this.now/100) * (this.opacity2-this.opacity1);
+				this.element.style.filter = "alpha(opacity=" + this.element.style.opacity*100 + ")";
+			}
+			effect = new effectObject(element, ticksToStart, speed, action, style, loop, coAction, endAction);
+			effect.element = (typeof element == 'string') ? document.getElementById(element) : element;
+			effect.opacity1 = opacity1;
+			effect.opacity2 = opacity2;
+		}
+		
+		function move(element, top1, left1, top2, left2, speed, ticksToStart, style, loop, coAction, endAction)
+		{	
+			changeNumber(element, "top", "px", top1, top2, speed, ticksToStart, style, loop, coAction, endAction);
+			changeNumber(element, "left", "px", left1, left2, speed, ticksToStart, style, loop);
+		}
+		
+		function scale(element, width1, height1, width2, height2, speed, ticksToStart, style, loop, coAction, endAction)
+		{
+			changeNumber(element, "width", "px", width1, width2, speed, ticksToStart, style, loop, coAction, endAction);
+			changeNumber(element, "height", "px", height1, height2, speed, ticksToStart, style, loop);
+		}
+		
+		function morph(element1, element2, width1, height1, width2, height2, speed, ticksToStart, style, loop, coAction, endAction)
+		{
+			scale(element1, width1, height1, width2, height2, speed, ticksToStart, style, loop, coAction, endAction);
+			scale(element2, width1, height1, width2, height2, speed, ticksToStart, style, loop);
+			fade(element1, 1, 0, speed, ticksToStart, style, loop);
+			fade(element2, 0, 1, speed, ticksToStart, style, loop);
+		}	
+	
+	
+		function Animation1() 
+		{
+			move("teapot1", 0, 0, 0, 300, 5, 0, styleSin, false, null, 
+			  function() { move("teapot1", 0, 300, 0, 0, 5, 20, styleSin); });
+		}
+		
+		function Animation2() 
+		{
+			fade("teapot2", 1, 0, 5, 0, styleLinear, false, null, 
+			  function() { fade("teapot2", 0, 1, 5, 0, styleLinear); });
+		}
+		
+		function Animation3() 
+		{
+			scale("teapot3", 100, 100, 150, 150, 2, 0, styleBounceMore, false, null, 
+			  function() { scale("teapot3", 150, 150, 100, 100, 2, 10, styleBounceMore); });
+		}
+		
+		function Animation4() 
+		{
+			morph("teapot4", "teapot5", 93, 117, 100, 65, 6, 0, styleSin, false, null, 
+				function() { morph("teapot5", "teapot4", 100, 65, 93, 117, 6, 10, styleSin ); });
+		}
+	</script>
+    
+    <div style="position: relative; height: 150px;">
+        <img alt="teapot" id="teapot1" onClick="Animation1();" style="position: relative; float: left; z-index: 100; " src="cajnik4small.gif">
+        <img alt="teapot" id="teapot2" onClick="Animation2();" style="position: relative; float: left;" src="cajnik2small.png">
+        <img alt="teapot" id="teapot3" onClick="Animation3();" style="position: relative; width: 100px; height: 100px; float: left" src="cajnik1medium.png">
+        <div style="position: relative; float:left;">
+            <img alt="teapot" id="teapot5" style="position: absolute; left: 0px; top: 0px; opacity: 0; filter: alpha(opacity=0);" src="cajnik5horizontal.png">        
+            <img alt="teapot" id="teapot4" onClick="Animation4();" style="position: absolute; left: 0px; top: 0px;" src="cajnik6vertical.png">
+        </div>
+    </div>
+    
+
+
+
+
+
+
+</body></html>

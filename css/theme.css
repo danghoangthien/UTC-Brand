@@ -1,0 +1,368 @@
+/* ----- Logo ----- */
+
+#logo a {
+	background-image:url('../images/wflogo.png'); 
+	min-height:0;
+	height:40px;
+}
+* html #logo a {/* IE6 png Support */
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/wflogo.png", sizingMethod="crop");
+}
+
+/* ----- Backgrounds ----- */
+html{
+	background-image:none;
+}
+#logo{
+	background-image:none;	background-color:#f54f29;
+}
+.wufoo #container, html.embed{
+	background-color:#fff2df;
+}
+.safari .wufoo input.file{
+	background:none;
+	border:none;
+}
+
+.wufoo li.focused{
+	background-color:#ff974f;
+}
+.wufoo .instruct{
+	background-color:#9c9b7a;
+}
+
+/* ----- Borders ----- */
+.wufoo #container{
+	border:0 solid #cccccc;
+}
+.wufoo .info, .wufoo .paging-context{
+	border-bottom:1px dotted #9c9b7a;
+}
+.wufoo .section h3, .wufoo .captcha, #payment .paging-context{
+	border-top:1px dotted #9c9b7a;
+}
+.wufoo input.text, .wufoo textarea.textarea{
+	border:;
+}
+.wufoo .instruct{
+	border:0 solid #e6e6e6;
+}
+.fixed .info{
+	border-bottom:none;
+}
+.wufoo li.section.scrollText{
+	border-color:#ded3c2;
+}
+
+/* ----- Typography ----- */
+.wufoo .info h2{
+	font-size:160%;
+	font-family:inherit;
+	font-style:normal;
+	font-weight:normal;
+	color:#000000;
+}
+.wufoo .info div{
+	font-size:95%;
+	font-family:inherit;
+	font-style:normal;
+	font-weight:normal;
+	color:#444444;
+}
+.wufoo .section h3{
+	font-size:110%;
+	font-family:inherit;
+	font-style:normal;
+	font-weight:normal;
+	color:#000000;
+}
+.wufoo .section div{
+	font-size:85%;
+	font-family:inherit;
+	font-style:normal;
+	font-weight:normal;
+	color:#444444;
+}
+
+.wufoo label.desc, .wufoo legend.desc{
+	font-size:95%;
+	font-family:inherit;
+	font-style:normal;
+	font-weight:bold;
+	color:#333333;
+}
+
+.wufoo label.choice{
+	font-size:100%;
+	font-family:inherit;
+	font-style:normal;
+	font-weight:normal;
+	color:#333333;
+}
+.wufoo input.text, .wufoo textarea.textarea, .wufoo input.file, .wufoo select.select{
+	font-style:normal;
+	font-weight:normal;
+	color:#333333;
+	font-size:100%;
+}
+{* Custom Fonts Break Dropdown Selection in IE *}
+.wufoo input.text, .wufoo textarea.textarea, .wufoo input.file{ 
+	font-family:inherit;
+}
+
+
+.wufoo li div, .wufoo li span, .wufoo li div label, .wufoo li span label{
+	font-family:inherit;
+	color:#333333;
+}
+.safari .wufoo input.file{ /* Webkit */
+	font-size:100%;
+	font-family:inherit;
+	color:#333333;
+}
+.wufoo .instruct small{
+	font-size:80%;
+	font-family:inherit;
+	font-style:normal;
+	font-weight:normal;
+	color:#ffffff;
+}
+
+.altInstruct small, li.leftHalf small, li.rightHalf small,
+li.leftThird small, li.middleThird small, li.rightThird small,
+.iphone small{
+	color:#ffffff !important;
+}
+
+/* ----- Button Styles ----- */
+
+.wufoo input.btTxt{
+	font-size:;
+	font-family:;
+	font-weight:;
+	font-style:;
+	color:;
+}
+
+/* ----- Highlight Styles ----- */
+
+.wufoo li.focused label.desc, .wufoo li.focused legend.desc,
+.wufoo li.focused div, .wufoo li.focused span, .wufoo li.focused div label, .wufoo li.focused span label,
+.safari .wufoo li.focused input.file{ 
+	color:#000000;
+}
+
+/* ----- Confirmation ----- */
+
+.confirm h2{
+	font-family:inherit;
+	color:#333333;
+}
+a.powertiny b, a.powertiny em{
+color:#1a1a1a !important;
+}
+.embed a.powertiny b, .embed a.powertiny em{
+color:#1a1a1a !important;
+}
+
+/* ----- Pagination ----- */
+
+.pgStyle1 var, .pgStyle2 var, .pgStyle2 em, .page1 .pgStyle2 var, .pgStyle1 b, .wufoo .buttons .marker{
+	font-family:inherit;
+	color:#333333;
+}
+.pgStyle1 var, .pgStyle2 td{
+	border:1px solid #ccc2b2;
+}
+.pgStyle1 .done var{
+	background:#ccc2b2;
+}
+
+.pgStyle1 .selected var, .pgStyle2 var, .pgStyle2 var em{
+	background:#ff974f;
+	color:#000000;
+}
+.pgStyle1 .selected var{
+	border:1px solid #e68847;
+}
+
+.buttons button, .buttons button:hover{
+	color:#000000;
+}
+
+/* Likert Backgrounds */
+
+.likert table{
+	background-color:#fff2df;
+}
+.likert thead td, .likert thead th{
+	background-color:#e6dac9;
+}
+.likert tbody tr.alt td, .likert tbody tr.alt th{
+	background-color:#f5e8d6;
+}
+
+/* Likert Borders */
+
+.likert table, .likert th, .likert td{
+	border-color:#ded3c2;
+}
+.likert td{
+	border-left:1px solid #ccc2b2;
+}
+
+/* Likert Typography */
+
+.likert caption, .likert thead td, .likert tbody th label{
+	color:#333333;
+	font-family:inherit;
+}
+.likert tbody td label{
+	color:#484848;
+	font-family:inherit;
+}
+.likert caption, .likert tbody th label{
+	font-size:95%;
+}
+
+/* Likert Hover */
+
+.likert tbody tr:hover td, .likert tbody tr:hover th, .likert tbody tr:hover label{
+	background-color:#ff974f;
+	color:#000000;
+}
+.likert tbody tr:hover td{
+	border-left:1px solid #cc793f;
+}
+
+/* ----- Running Total ----- */
+
+.wufoo #lola{
+	background:#e6dac9;
+}
+.wufoo #lola tbody td{
+	border-bottom:1px solid #ccc2b2;
+}
+.wufoo #lola{
+	font-family:inherit;
+	color:#333333;
+}
+.wufoo #lola tfoot th{
+	color:#5c5c5c;
+}
+
+/* ----- Report Styles ----- */
+
+.wufoo .wfo_graph h3{
+	font-size:95%;
+	font-family:inherit;
+	color:#333333;
+}
+.wfo_txt, .wfo_graph h4{
+	color:#333333;
+}
+.wufoo .footer h4{
+	color:#000000;
+}
+.wufoo .footer span{
+	color:#333333;
+}
+
+/* ----- Number Widget ----- */
+
+.wfo_number{
+	background-color:#f5e8d6;
+	border-color:#ded3c2;
+}
+.wfo_number strong, .wfo_number em{
+	color:#000000;
+}
+
+/* ----- Chart Widget Border and Background Colors ----- */
+
+#widget, #widget body{
+	background:#fff2df;
+}
+.fcNav a.show{
+	background-color:#fff2df;
+	border-color:#ccc2b2;
+}
+.fc table{
+	border-left:1px solid #ded3c2;	
+}
+.fc thead th, .fc .more th{
+	background-color:#ded3c2 !important;
+	border-right:1px solid #ccc2b2 !important;
+}
+.fc tbody td, .fc tbody th, .fc tfoot th, .fc tfoot td{
+	background-color:#fff2df;
+	border-right:1px solid #ccc2b2;
+	border-bottom:1px solid #ded3c2;
+}
+.fc tbody tr.alt td, .fc tbody tr.alt th, .fc tbody td.alt{
+	background-color:#f5e8d6;
+}
+
+/* ----- Chart Widget Typography Colors ----- */
+
+.fc caption, .fcNav, .fcNav a{
+	color:#333333;
+}
+.fc tfoot, 
+.fc thead th,
+.fc tbody th div, 
+.fc tbody td.count, .fc .cards tbody td a, .fc td.percent var,
+.fc .timestamp span{
+	color:#000000;
+}
+.fc .indent .count{
+	color:#3b3b3b;
+}
+.fc .cards tbody td a span{
+	color:#717171;
+}
+
+/* ----- Chart Widget Hover Colors ----- */
+
+.fc tbody tr:hover td, .fc tbody tr:hover th,
+.fc tfoot tr:hover td, .fc tfoot tr:hover th{
+	background-color:#ff974f;
+}
+.fc tbody tr:hover th div, .fc tbody tr:hover td, .fc tbody tr:hover var,
+.fc tfoot tr:hover th div, .fc tfoot tr:hover td, .fc tfoot tr:hover var{
+	color:#000000;
+}
+
+/* ----- Payment Summary ----- */
+
+.invoice thead th, 
+.invoice tbody th, .invoice tbody td,
+.invoice tfoot th,
+.invoice .total,
+.invoice tfoot .last th, .invoice tfoot .last td,
+.invoice tfoot th, .invoice tfoot td{
+	border-color:#ded3c2;
+}
+.invoice thead th, .wufoo .checkNotice{
+	background:#f5e8d6;
+}
+.invoice th, .invoice td{
+	color:#000000;
+}
+#ppSection, #ccSection{
+	border-bottom:1px dotted #9c9b7a;
+}
+#shipSection, #invoiceSection{
+	border-top:1px dotted #9c9b7a;
+}
+
+/* Drop Shadows */
+#bottom{
+	visibility:visible;
+}
+
+/* - - - Local Fonts - - - */
+
+/* - - - Custom Theme - - - */
+
